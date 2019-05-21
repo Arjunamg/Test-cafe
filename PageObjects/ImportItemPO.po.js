@@ -8,17 +8,17 @@ export default class importItem {
         this.chooseFile = Selector('button').withText('Choose File')
         this.Next = Selector('button').withText('Next')
     }
-    async itemImport(orderName, excelItem) {
+    async itemImport(excelItem) {
         await t
             .click(this.excelButton)
             .click(this.chooseFile)
             .setFilesToUpload(Selector('.c-hide'), [excelItem])
             // .click(Selector('.multiselect__tags').nth(9).find('span').withText('Select option'))
-            .click(this.id)
+            // .click(this.id)
             // .click(this.matchLevel)
             // .click(Selector('.multiselect__tags').nth(11).find('span').withText('Select option'))
             // .click(this.matchZone)
-            // .click(this.Next)
+            .click(this.Next)
 
     }
 }
