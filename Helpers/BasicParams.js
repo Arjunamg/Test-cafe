@@ -1,5 +1,5 @@
 export default {
     url :'https://app.manufacton.com/#/login',
-    email:'',
+    email:'ui@automation.comp',
     password:'Cricket!',
 }
