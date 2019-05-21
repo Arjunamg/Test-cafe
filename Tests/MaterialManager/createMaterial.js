@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe';
+import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 import Role from '../../Helpers/Roles'
 import Create from "../../PageObjects/matCreatePO";
@@ -24,22 +24,26 @@ test('Create Material', async t => {
         .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
         .expect(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon').exists).ok()
         .click(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon'))
-        .expect(create.orderName.innerText).eql('')
-        .expect(create.orderBy.innerText).eql('')
-        .expect(create.availBy.innerText).eql('')
-        .expect(create.ship.innerText).eql('')
-        .expect(create.onsite.innerText).eql('')
-        .expect(create.level.innerText).eql('')
-        .expect(create.zone.innerText).eql('')
-    await create.create('new-03', '8', '16', '23', '30', 'l-01', 'z-01')
-    item.add('8', 'item-01', '23', '24', 'item-note')
+    await create.create('Material Order', '8', '16', '23', '30', 'l-01', 'z-01')
+    item.add('001', 'item-01', '23', '24', 'item-note')
+    item.add('002', 'item-02', '23', '24', 'item-note')
+    item.add('003', 'item-03', '23', '24', 'item-note')
+    item.add('004', 'item-04', '23', '24', 'item-note')
+    item.add('005', 'item-05', '23', '24', 'item-note')
     checklist.addItemChecklist('checklist-01', '24')
+    await t
+    .click(Selector('.fas.fa-check'), {
+        modifiers: {
+            ctrl: true
+        }
+    })
+    .wait(2000)
+    .expect(create.orderName.value).contains("Material Order")
+    .expect(create.orderBy.value).contains("8")
+    .expect(create.availBy.value).contains("16")
+    .expect(create.ship.value).contains("23")
+    .expect(create.onsite.value).contains("30")
+    .expect(create.level.value).contains("l-01")
+    .expect(create.zone.value).contains("z-01")
     await t.click(Selector('.fas.fa-check'));
 });
-
-// test('Move To FM', async t => {
-//    await t
-//        .click(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span').nth(2))
-//        .click(Selector('a').withText('MATERIAL MANAGER'))
-//        .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
-// });
