@@ -1,9 +1,7 @@
 import { Selector, t } from "testcafe";
-import VueSelector from 'testcafe-vue-selectors';
 
 export default class Movement {
     constructor() {
-        this.globalSearchField  = VueSelector('search-bar');
         this.forwardPaperPlane = Selector('.fa.fa-paper-plane.fa-2x.fa-1x.fa');
         this.forwardItemPaperPlane = Selector('.icon').nth(43).find('.fas.m-r-5.fa.fa-paper-plane');
         this.backwardPaperPlane = Selector('[class^="fa fa-paper-plane fa-flip-horizontal fa-2x fa-1x f"]');
@@ -22,10 +20,7 @@ export default class Movement {
         // this.shipCreate = Selector('button').withText('Create');
     }
 
-    async movement(orderName,kind){
-        await t
-        .typeText(this.globalSearchField, orderName)
-        .wait(2000)
+    async movement(kind){
         if(kind==='forward'){
             await this.forward();
         }
