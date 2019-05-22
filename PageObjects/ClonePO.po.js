@@ -10,7 +10,7 @@ export default class CloneCard {
         this.cloneConfirm = Selector('button').withText('Clone')
         this.clone = Selector('footer').find('button').withText('Yes')
     }
-    async clone() {
+    async cloneOrder() {
         await t
            .click(this.click3dots)
            .click(this.selectClone)
