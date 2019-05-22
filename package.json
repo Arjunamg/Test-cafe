@@ -1,5 +1,5 @@
 {
-  "name": "testcafe",
+  "name": "UIAutomation",
   "version": "1.0.0",
   "description": "ui automation",
   "main": "index.js",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Arjunamg/Test-cafe/issues"
   },
-  "homepage": "https://github.com/Arjunamg/Test-cafe#readme"
+  "homepage": "https://github.com/Arjunamg/Test-cafe#readme",
+  "dependencies": {
+    "testcafe": "^1.1.4",
+    "testcafe-vue-selectors": "^3.1.0"
+  }
 }
