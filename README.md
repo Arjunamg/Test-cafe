@@ -5,7 +5,7 @@ Automation for UI with Testcafe-Example codes
 Install 
 1) Install Node.js
 2) Install Git.
-3) Run "git clone `The Repo SSH`".
+3) Run "git clone `Repo SSH`".
 4) Run "npm i" in the Cloned folder.
 
 
