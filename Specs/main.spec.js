@@ -37,9 +37,9 @@ test('Material', async t => {
   await common.clearSearch();
   await common.search(name);
   await common.clone();
-  await common.search(`Clone-Of-${name}`);
+  await common.search(`Clone Of ${name}`);
   await common.clearSearch();
-  await common.combine(`Split-of-${name}`,`Clone-Of-${name}`);
+  await common.combine(`Split-of-${name}`,`Clone Of ${name}`);
   await common.split(`Split-of-${name}`);
   await common.remove();
 })
