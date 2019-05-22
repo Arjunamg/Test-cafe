@@ -4,6 +4,11 @@ import VueSelector from 'testcafe-vue-selectors';
 import GlobalSearch from "./GlobalSearch.po";
 const globalSearch = new GlobalSearch();
 
+import ClearSearch from './ClearSearch.po';
+const clearSearch = new ClearSearch();
+
+
+
 export default class Movement {
     constructor() {
         this.threeDot= Selector('.button.custome-dot-menu').find('.icon')
@@ -11,7 +16,7 @@ export default class Movement {
         this.combineButton =Selector('button').withText('Combine')
     }
     async combine(parentOrder, childOrder){
-        await globalSearch.Search(parentOrder);
+        await globalSearch.search(parentOrder);
         await t
             .click(this.threeDot)
             // .wait(1000)
