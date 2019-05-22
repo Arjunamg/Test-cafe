@@ -59,15 +59,19 @@ test('Material', async t => {
   await common.remove();
   await common.clearSearch();
   await common.search(name);
+  //Function for Moving the order To FM
   await common.move('forward','FM');
   await common.clearSearch();
   await t.navigateTo('https://app.manufacton.com/#/materials/qa');
   await common.search(name);
+  //Function for Editing the order in FM
   await edit.editCard(name);
   await common.search(name);
+  //Function for Moving the order To Ordering
   await common.move('forward','Ordering');
   await t.navigateTo('https://app.manufacton.com/#/materials/ordering');
   await common.search(name);
+  //Function for Create Shipping 
   await common.ship();
   await t.navigateTo('https://app.manufacton.com/#/scm/shipping/order-view');
   await common.search(name);
