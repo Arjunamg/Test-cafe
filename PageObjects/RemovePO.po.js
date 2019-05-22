@@ -7,7 +7,7 @@ export default class Remove {
         this.remove = VueSelector('ActionsField BDropdown BDropdownItem').nth(3);
         this.confirm = Selector('footer').find('button').withText('Yes')
     }
-    async remove() {
+    async removeOrder() {
         await t
             .click(this.click3dots)
             .click(this.remove)

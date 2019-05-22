@@ -23,13 +23,13 @@ export default {
         await combine.combine(firstOrder,secondOrder);
     },
     clone: async () =>{
-        await clone.clone();
+        await clone.cloneOrder();
     },
     split: async (name) =>{
         await split.split(name);
     },
     remove: async () =>{
-        await remove.remove();
+        await remove.removeOrder();
     },
     
 }
