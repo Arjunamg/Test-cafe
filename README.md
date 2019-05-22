@@ -20,8 +20,8 @@ in Package.JSON --> Scripts
 ---------------------------------------------------------------------------------------------
 
 If terminal errors shows up for Vue-Selectors use the following commands : 
-globally --> in terminal run $ npm install babel-runtime
-globally --> in terminal run $ npm install babel-core
-globally --> in terminal run $ npm install 
-globally --> in terminal run $ npm install testcafe
+At Root level --> in terminal run $ npm install babel-runtime
+At Root level --> in terminal run $ npm install babel-core
+At Root level --> in terminal run $ npm install 
+At Root level --> in terminal run $ npm install testcafe
 in the test folder --> run npm link testcafe
