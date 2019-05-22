@@ -6,6 +6,7 @@ import Remove from './../PageObjects/RemovePO.po';
 import Split from './../PageObjects/Split.po';
 import Move from './../PageObjects/Movebuttons.po'
 //import Navigator from './../Helpers/Navigator'
+import Ship from './../PageObjects/moveToShipping.po'
 
 const clearSearch = new ClearSearch();
 const search = new Search();
@@ -14,6 +15,7 @@ const combine = new Combine();
 const remove = new Remove();
 const split = new Split();
 const move = new Move();
+const ship = new Ship();
 //const navigator = new Navigator();
 
 export default {
@@ -41,5 +43,11 @@ export default {
     // navigator : async(stage)=>{
     //     await navigator.na
     // }
+    // edit : async (name) =>{
+    //     await edit.editCard(name);
+    // }
+    ship : async()=>{
+        await ship.moveToShip()
+    }
     
 }
