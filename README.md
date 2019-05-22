@@ -12,14 +12,12 @@ Install
 --------------------------------------------------------------------------------------------
 
 To run tests: 
-npm run-script "script-name"
 
-Script names:
-in Package.JSON --> Scripts
+testcafe "chrome --disk-cache-size=1" `TestFile.js` -e
 
 ---------------------------------------------------------------------------------------------
-
 If terminal errors shows up for Vue-Selectors use the following commands : 
+
 At Root level --> in terminal run $ npm install babel-runtime
 At Root level --> in terminal run $ npm install babel-core
 At Root level --> in terminal run $ npm install 
