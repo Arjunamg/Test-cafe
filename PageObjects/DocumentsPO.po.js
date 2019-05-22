@@ -14,9 +14,9 @@ export default class addDocs {
     async addDocs(orderName, itemDoc, itemFileName, itemFile, orderDoc, orderFileName, orderFile) {
         await t
             // Search for Order and  Open it
-            .typeText(Selector('.input.p-r-25'), orderName)
-            .wait(5000)
-            .click(Selector('.columns').find('div').withText(orderName))
+            // .typeText(Selector('.input.p-r-25'), orderName)
+            // .wait(5000)
+            // .click(Selector('.columns').find('div').withText(orderName))
 
             //  This for Order level Documents and File
             .click(this.Orderupload)

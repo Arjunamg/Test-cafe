@@ -22,6 +22,7 @@ export default {
         item.add('003', 'item-03', '23', '24', 'item-note')
         item.add('004', 'item-04', '23', '24', 'item-note')
         item.add('005', 'item-05', '23', '24', 'item-note')
+        // await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
         checklist.addItemChecklist('checklist-01', '24')
         await t
         .click(Selector('.fas.fa-check'), {
