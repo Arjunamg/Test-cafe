@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe';
+import { Selector, t, ClientFunction } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 import Role from '../../Helpers/Roles'
 
@@ -11,23 +11,33 @@ const docs = new Docs();
 const importItem = new ImportItem();
 // const movement = new Movement();
 
+// const browserscroll = ClientFunction(function() {
+//     //  window.scrollBy(0, 100);
+//     window.scrollBy(0,0)
+
+//       //document.scrollIntoView(true)
+//   })
+
 export default {
-    editCard: async () => {
+    editCard: async (name) => {
         await t
-            .expect(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span').nth(2).exists).ok()
-            .click(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span').nth(2))
-            .click(Selector('a').withText('MATERIAL MANAGER'))
-            .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
-            .click(Selector('span').withText('FIELD MEASUREMENT'))
-            .click(Selector('.columns').find('div').withText('1234567890'))
-        await docs.addDocs('1234567890', '/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/500 items Prefab.xlsx', 'item doc', 'https://www.google.com',
-            '/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/500 items Prefab.xlsx', 'order doc', 'https://www.amazon.com')
+        .wait(2000);
+        // await browserscroll();
+        // await t.wait(2000);
+        await t .click(Selector('td').withText(name));
+        await docs.addDocs( '/home/dinesh/Downloads/3 items.xlsx', 'item doc', 'https://www.google.com',
+        '/home/dinesh/Downloads/3 items.xlsx', 'order doc', 'https://www.amazon.com')
         // await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
         await t
             .click(Selector('span').withText('FIELD MEASUREMENT'))
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 4; i++) {
             await t.click(Selector('.has-text-centered.check-box').nth(i))
         }
-        await t.click(Selector('.fas.fa-check'))
+        await t
+        .click(Selector('.fas.fa-check'))
+        .wait(2000)
+        .click(Selector('.fas.fa-columns.fa-lg'))
+        .click(Selector('label').withText('Project').find('.check'))
+        .click(Selector('.fas.fa-columns.fa-lg'));
     }
 }

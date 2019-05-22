@@ -11,7 +11,7 @@ export default class addDocs {
         this.add = Selector('a').withText('Add')
 
     }
-    async addDocs(orderName, itemDoc, itemFileName, itemFile, orderDoc, orderFileName, orderFile) {
+    async addDocs(itemDoc, itemFileName, itemFile, orderDoc, orderFileName, orderFile) {
         await t
             // Search for Order and  Open it
             // .typeText(Selector('.input.p-r-25'), orderName)

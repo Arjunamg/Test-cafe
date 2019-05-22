@@ -3,7 +3,7 @@ import { Selector, t } from "testcafe";
 export default class Movement {
     constructor() {
         this.forwardPaperPlane = Selector('.fa.fa-paper-plane.fa-2x.fa-1x.fa');
-        this.forwardItemPaperPlane = Selector('.icon').nth(43).find('.fas.m-r-5.fa.fa-paper-plane');
+        this.forwardItemPaperPlane = Selector('.icon').find('.fas.m-r-5.fa.fa-paper-plane');
         this.backwardPaperPlane = Selector('[class^="fa fa-paper-plane fa-flip-horizontal fa-2x fa-1x f"]');
         this.backwardItemPaperPlane = Selector('.fas.m-r-5.fa.fa-paper-plane.fa-flip-horizontal');
         this.selectAllItems = Selector('[class^="vuetable-th-component-checkbox vuetable-th-compone"]').find('input');
@@ -12,7 +12,7 @@ export default class Movement {
         this.stagePrep =Selector('span').withText('Preparation').nth(1)
         this.stageFM =Selector('span').withText('Field Measurement').nth(1)
         this.stageOrdering =Selector('span').withText('Ordering').nth(1)
-
+        //.nth(43)
 
 
         //Below are the Shipping selectors which might be useful later.
@@ -58,8 +58,8 @@ export default class Movement {
             await t  
             .click(this.forwardPaperPlane)
             .click(this.forwardItemPaperPlane)
-            .click(this.stageDD)
-            .click(this.stageOrdering)
+            // .click(this.stageDD)
+            // .click(this.stageOrdering)
             .click(this.selectAllItems)
             .click(this.modalMove)
             }

@@ -1,9 +1,14 @@
 import { Selector,ClientFunction, Role } from "testcafe";
 import createMaterial from './../Tests/MaterialManager/createMaterial';
+import edit from './../Tests/MaterialManager/editCard'
 import common from './../Tests/common.test'
 import orderName from './../Helpers/RandomNames';
 import BasicParams from './../Helpers/BasicParams';
 import GC_Role from './../Helpers/Roles';
+
+
+
+
 
 // const urlNav = ClientFunction(url => {
 //   location.href = url;
@@ -27,7 +32,9 @@ const name = orderName.name();
 
 fixture`Material Manager`
   .beforeEach(async t => {
-    await t.wait(500).useRole(GC_Role());
+    await t
+      .maximizeWindow()
+      .wait(500).useRole(GC_Role());
   });
 
 test('Material', async t => {
@@ -56,9 +63,14 @@ test('Material', async t => {
   await common.clearSearch();
   await t.navigateTo('https://app.manufacton.com/#/materials/qa');
   await common.search(name);
-  
-
-
+  await edit.editCard(name);
+  await common.search(name);
+  await common.move('forward','Ordering');
+  await t.navigateTo('https://app.manufacton.com/#/materials/ordering');
+  await common.search(name);
+  await common.ship();
+  await t.navigateTo('https://app.manufacton.com/#/scm/shipping/order-view');
+  await common.search(name);
 })
 
 

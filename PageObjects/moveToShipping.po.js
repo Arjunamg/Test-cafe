@@ -29,7 +29,7 @@ export default class Movement {
             .click(this.deliveryDate)
             .click(Selector('.datepicker-row').nth(47).find('a').withText('16'))
             .click(this.deliveryLocation)
-            .click(Selector('li').withText('lakshmi loc2').nth(2).find('.multiselect__option'))
+            .click(Selector('li').withText('New Location').nth(2).find('.multiselect__option'))
             .click(Selector('button').withText('Create'));
     }
 }
