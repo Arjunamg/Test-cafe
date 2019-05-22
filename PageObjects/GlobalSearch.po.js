@@ -5,7 +5,7 @@ export default class Movement {
     constructor() {
         this.globalSearchField  = VueSelector('search-bar');
     }
-    async Search(orderName) {
+    async search(orderName) {
         await t
         .typeText(this.globalSearchField, orderName)
         .wait(2000)
@@ -13,4 +13,3 @@ export default class Movement {
 
     }      
 }
-      

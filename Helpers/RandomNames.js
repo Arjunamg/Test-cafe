@@ -1,4 +1,6 @@
 export default {
-    dateTime : new Date().getTime(),
-    name : dateTime.toString().substr(0, 10)
+    name : () => {
+        const time = new Date().getTime();
+        return `Order-${time.toString().substr(0, 10)}`;
+    }
 };

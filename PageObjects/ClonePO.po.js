@@ -10,10 +10,8 @@ export default class CloneCard {
         this.cloneConfirm = Selector('button').withText('Clone')
         this.clone = Selector('footer').find('button').withText('Yes')
     }
-    async clone(orderName) {
+    async clone() {
         await t
-        //    .typeText(Selector('.input.p-r-25'), orderName)
-        //    .wait(4000)
            .click(this.click3dots)
            .click(this.selectClone)
            .click(this.selectChecklist)
