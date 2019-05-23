@@ -24,4 +24,4 @@ At Root level --> in terminal run $ npm install babel-runtime\
 At Root level --> in terminal run $ npm install babel-core\
 At Root level --> in terminal run $ npm install\
 At Root level --> in terminal run $ npm install testcafe\
-in the test folder --> run npm link testcafe
+in the test folder --> run `npm link testcafe`
