@@ -8,12 +8,7 @@
     "slow": "testcafe 'chrome --disk-cache-size=1' Specs/main.spec.js -e --speed 0.7 ",
     "remote": "testcafe remote '--disk-cache-size=1' Specs/main.spec.js -e --qr-code",
     "all": "testcafe all '--disk-cache-size=1' Specs/main.spec.js -e ",
-    "hidden": "testcafe 'chrome:headless --disk-cache-size=1' Specs/main.spec.js -e --speed 0.7 "
-    "test-w": "testcafe 'chrome --disk-cache-size=1'  .\Specs\main.spec.js -e ",
-    "slow-w": "testcafe 'chrome --disk-cache-size=1' .\Specs\main.spec.js -e --speed 0.7 ",
-    "remote-w": "testcafe remote '--disk-cache-size=1'  .\Specs\main.spec.js -e --qr-code",
-    "all-w": "testcafe all '--disk-cache-size=1'  .\Specs\main.spec.js -e ",
-    "hidden-w": "testcafe 'chrome:headless --disk-cache-size=1'  .\Specs\main.spec.js -e --speed 0.7 "
+    "hidden": "testcafe 'chrome:headless --disk-cache-size=1' Specs/main.spec.js -e --speed 0.7 " 
   },
   "repository": {
     "type": "git",
