@@ -13,7 +13,7 @@ Install
 
 To run tests: 
 
-testcafe "chrome --disk-cache-size=1" `TestFile.js` -e
+testcafe "chrome --disk-cache-size=1" `TestFileName.js` -e
 
 ---------------------------------------------------------------------------------------------
 If and only if terminal errors shows up for Vue-Selectors use the following commands : 
