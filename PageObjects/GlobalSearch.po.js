@@ -5,11 +5,10 @@ export default class Movement {
     constructor() {
         this.globalSearchField  = VueSelector('search-bar');
     }
-    async search(orderName) {
+    async search(name) {
         await t
-        .typeText(this.globalSearchField, orderName)
+        .typeText(this.globalSearchField, name)
         .wait(2000)
-        .expect(Selector('td').withText(orderName).textContent).ok();
-
-    }      
+        .expect(Selector('td').withText(name).textContent).ok();
+    }  
 }
