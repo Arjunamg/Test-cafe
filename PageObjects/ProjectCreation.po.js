@@ -1,54 +1,60 @@
+/**
+ * Created by Dinesh on 24/05/19.
+ */
+
 import { Selector, t } from "testcafe";
 import Search from "../PageObjects/GlobalSearch.po";
 const search = new Search();
 
+//The commented out lines are for sending member,company,DeliveyLoc name after those tests run first, for now it is hard coded.
 export default class projectSelectors {
     constructor() {
-        this.addNewPMCL = Selector('.fas.fa-plus.m-t-3-4')
-        this.projectName = Selector('.control.m-b-15.is-clearfix').find('.input')
-        this.locName = Selector('.control.m-b-15.is-clearfix').nth(1).find('.input')
-        this.streetName = Selector('.control.m-b-15.is-clearfix').nth(2).find('.input')
-        this.cityName = Selector('.control.m-b-15.is-clearfix').nth(3).find('.input')
-        this.stateName = Selector('.control.m-b-15.is-clearfix').nth(4).find('.input')
-        this.zipField = Selector('.control.m-b-15.is-clearfix').nth(5).find('.input')
-        this.levelField = Selector('.input').nth(7)
-        this.zoneField = Selector('.input').nth(8)
-        this.projSettingsTab = Selector('span').withText('COMPANY PROJECT SETTINGS')
-        this.projIdField = Selector('.control.is-spaced.m-b-15.is-clearfix').find('.input')
-        this.saveProj = Selector('.fa.fa-check.fa-lg')
-        this.editProj = Selector('.fa.fa-pen.fa-lg')
-        this.projMembersTab = Selector('.tabs.is-medium').nth(1).find('a').withText('MEMBERS')
-        this.memberModalSearch = Selector('div').withText('Select Users').nth(8).find('.input.p-r-25')
-        this.memberCheckbox = Selector('#checkbox')
-        this.mlImportButton = Selector('button').withText('Import')
-        this.memberAddAssert = Selector('td').withText('Check member 1')
-        this.projCompsTab = Selector('.tabs.is-medium').nth(1).find('span').withText('COMPANIES')
-        this.compModalSearch = Selector('div').withText('Invite Existing Companies').nth(8).find('.input.p-r-25')
-        this.compCheckbox = Selector('.checkbox').find('input')
-        this.compInvitButton = Selector('button').withText('Invite')
-        this.compAddAssert = Selector('td').withText('App14')
-        this.projLocTab = Selector('span').withText('DELIVERY LOCATIONS')
-        this.locNameField = Selector('.vuetable-component').find('.input')
-        this.locOwnerField = Selector('.vuetable-component').nth(1).find('.input')
-        this.locStreetField = Selector('.vuetable-component').nth(2).find('.input')
-        this.locCityField = Selector('.vuetable-component').nth(3).find('.input')
-        this.locStateField = Selector('.vuetable-component').nth(4).find('.input')
-        this.locZipField = Selector('.vuetable-component').nth(5).find('.input')
-        this.projLocSave = Selector('.fas.fa-check')
-        this.importLoc = Selector('i').withAttribute('class', /fas fas fa\-copy\s+m\-t\-3\-4/)
-        // this.importLocMocdalSearch = Selector('div').withText('Import Company Locations').nth(8).find('.input.p-r-25')
-        this.importLocModalCheckbox = Selector('#checkbox').nth(0)
-        // this.importLocButton = Selector('button').withText('Import')
+        Object.assign(this, {
+        addNewPMCL : Selector('.fas.fa-plus.m-t-3-4'),
+        projectName : Selector('.control.m-b-15.is-clearfix').find('.input'),
+        locName : Selector('.control.m-b-15.is-clearfix').nth(1).find('.input'),
+        streetName : Selector('.control.m-b-15.is-clearfix').nth(2).find('.input'),
+        cityName : Selector('.control.m-b-15.is-clearfix').nth(3).find('.input'),
+        stateName : Selector('.control.m-b-15.is-clearfix').nth(4).find('.input'),
+        zipField : Selector('.control.m-b-15.is-clearfix').nth(5).find('.input'),
+        levelField : Selector('.input').nth(7),
+        zoneField : Selector('.input').nth(8),
+        projSettingsTab : Selector('span').withText('COMPANY PROJECT SETTINGS'),
+        projIdField : Selector('.control.is-spaced.m-b-15.is-clearfix').find('.input'),
+        saveProj : Selector('.fa.fa-check.fa-lg'),
+        editProj : Selector('.fa.fa-pen.fa-lg'),
+        projMembersTab : Selector('.tabs.is-medium').nth(1).find('a').withText('MEMBERS'),
+        memberModalSearch : Selector('div').withText('Select Users').nth(8).find('.input.p-r-25'),
+        memberCheckbox : Selector('#checkbox'),
+        mlImportButton : Selector('button').withText('Import'),
+        memberAddAssert : Selector('td').withText('Check member 1'),
+        projCompsTab : Selector('.tabs.is-medium').nth(1).find('span').withText('COMPANIES'),
+        compModalSearch : Selector('div').withText('Invite Existing Companies').nth(8).find('.input.p-r-25'),
+        compCheckbox : Selector('.checkbox').find('input'),
+        compInvitButton : Selector('button').withText('Invite'),
+        compAddAssert : Selector('td').withText('App14'),
+        projLocTab : Selector('span').withText('DELIVERY LOCATIONS'),
+        locNameField : Selector('.vuetable-component').find('.input'),
+        locOwnerField : Selector('.vuetable-component').nth(1).find('.input'),
+        locStreetField : Selector('.vuetable-component').nth(2).find('.input'),
+        locCityField : Selector('.vuetable-component').nth(3).find('.input'),
+        locStateField : Selector('.vuetable-component').nth(4).find('.input'),
+        locZipField : Selector('.vuetable-component').nth(5).find('.input'),
+        projLocSave : Selector('.fas.fa-check'),
+        importLoc : Selector('i').withAttribute('class', /fas fas fa\-copy\s+m\-t\-3\-4/),
+        // importLocMocdalSearch : Selector('div').withText('Import Company Locations').nth(8).find('.input.p-r-25'),
+        importLocModalCheckbox : Selector('#checkbox').nth(0),
+        // importLocButton : Selector('button').withText('Import'),
 
 
-        this.openProject = Selector('.icon').nth(19).find('.fas.fa-external-link-alt')
-        this.aProjName = Selector('h1')
-        this.aLscsz = Selector('li')
-        this.aLvlField = Selector('.tag').find('span')
-        this.aZoneField = Selector('.tag').nth(5).find('span')
-        this.aProjId = Selector('p')
-        this.aLocFields = Selector('.vuetable-body').find('td')
-
+        openProject : Selector('.icon').nth(19).find('.fas.fa-external-link-alt'),
+        aProjName : Selector('h1'),
+        aLscsz : Selector('li'),
+        aLvlField : Selector('.tag').find('span'),
+        aZoneField : Selector('.tag').nth(1).find('span'),
+        aProjId : Selector('p'),
+        aLocFields : Selector('.vuetable-body').find('td'),
+        });
     }
     async create(pData) {
         await t
@@ -88,14 +94,16 @@ export default class projectSelectors {
 
             .click(this.projMembersTab)
             .click(this.addNewPMCL)
-        await search.search(pData.memName);
+        // await search.memberModalSearch(pData.memName);
+        await search.memberModalSearch('Name');
         await t
             .click(this.memberCheckbox)
             .click(this.mlImportButton)
 
             .click(this.projCompsTab)
             .click(this.addNewPMCL)
-        await search.search(pData.compName);
+        //await search.search(pData.compName);
+        await search.compModalSearch('Comp 1');
         await t 
             .click(this.compCheckbox)
             .click(this.compInvitButton)
@@ -117,10 +125,11 @@ export default class projectSelectors {
             .click(this.projLocSave)
 
             .click(this.importLoc);
-        await search.search(pData.dImportName)
+        //await search.search(pData.dImportName)
+        await search.locModalSearch('Loc Name')
         await t
             .click(this.importLocModalCheckbox)
-            .click(mlImportButton)
+            .click(this.mlImportButton)
                    
     }
 }

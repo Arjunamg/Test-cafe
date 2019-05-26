@@ -14,7 +14,7 @@ import GC_Role from './../Helpers/Roles';
 //   location.href = url;
 //   location.reload(true);
 // });
-// const url = "https://app.manufacton.com/#/materials/preparation";
+// const url = "https://stage.manufacton.com/#/materials/preparation";
 // const GC_Role = new Role(
 //   BasicParams.url,
 //   async t => {
@@ -42,6 +42,7 @@ test('Material', async t => {
     1. Order Level Dates and Level and zone
     2. 5 items, each with FM required and item notes
     3. Checklist for order*/
+  await t.navigateTo('https://stage.manufacton.com/#/materials/preparation')
   await createMaterial.createMaterial(name);
   await common.search(name);
   //Function for splitting the order
@@ -62,18 +63,18 @@ test('Material', async t => {
   //Function for Moving the order To FM
   await common.move('forward','FM');
   await common.clearSearch();
-  await t.navigateTo('https://app.manufacton.com/#/materials/qa');
+  await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
   await common.search(name);
   //Function for Editing the order in FM
   await edit.editCard(name);
   await common.search(name);
   //Function for Moving the order To Ordering
   await common.move('forward','Ordering');
-  await t.navigateTo('https://app.manufacton.com/#/materials/ordering');
+  await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
   await common.search(name);
   //Function for Create Shipping 
   await common.ship();
-  await t.navigateTo('https://app.manufacton.com/#/scm/shipping/order-view');
+  await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
   await common.search(name);
 })
 
