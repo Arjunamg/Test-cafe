@@ -5,7 +5,7 @@
 import { Selector, t } from "testcafe";
 import VueSelector from 'testcafe-vue-selectors';
 
-export default class Movement {
+export default class SearchBar {
     constructor() {
         this.globalSearchField  = VueSelector('search-bar');
         this.memberModalSearchField =Selector('div').withText('Select Users').nth(8).find('.input.p-r-25')
