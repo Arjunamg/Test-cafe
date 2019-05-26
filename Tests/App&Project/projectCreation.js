@@ -1,7 +1,3 @@
-/**
- * Created by Dinesh on 24/05/19.
- */
-
 import { Selector, t } from 'testcafe';
 import Project from '../../PageObjects/ProjectCreation.po'
 import Search from '../../PageObjects/GlobalSearch.po'

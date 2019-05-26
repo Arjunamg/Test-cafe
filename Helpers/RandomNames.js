@@ -1,7 +1,3 @@
-/**
- * Created by Dinesh on 13/05/19.
- */
-
 export default {
     name : () => {
         const time = new Date().getTime();

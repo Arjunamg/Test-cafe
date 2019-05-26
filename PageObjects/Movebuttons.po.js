@@ -1,8 +1,4 @@
 import { Selector, t } from "testcafe";
-/**
- * Created by Dinesh on 13/05/19.
- */
-
 export default class Movement {
     constructor() {
         this.forwardPaperPlane = Selector('.fa.fa-paper-plane.fa-2x.fa-1x.fa');

@@ -1,7 +1,3 @@
-/**
- * Created by Dinesh on 24/05/19.
- */
-
 import { Selector, t } from "testcafe";
 import Search from "../PageObjects/GlobalSearch.po";
 const search = new Search();
