@@ -1,5 +1,6 @@
 import { Selector,ClientFunction, Role } from "testcafe";
 import createMaterial from './../Tests/MaterialManager/createMaterial';
+import createPrefab from './../Tests/PrefabPlanner/createPrefab.test';
 import edit from './../Tests/MaterialManager/editCard'
 import common from './../Tests/common.test'
 import orderName from './../Helpers/RandomNames';

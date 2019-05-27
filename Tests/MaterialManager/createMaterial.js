@@ -1,12 +1,14 @@
 import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
-import Create from "../../PageObjects/matCreatePO.po";
+import Create from "../../PageObjects/subHeader.po";
 import addItem from "../../PageObjects/AddItemPO.po";
 import Checklist from "../../PageObjects/ChecllistPO.po";
+import ImportItem from "../../PageObjects/ImportItemPO.po";
 
 const create = new Create();
 const item = new addItem();
 const checklist = new Checklist();
+const importItem = new ImportItem('preparation');
 
 export default {
         createMaterial:async(name)=>{
@@ -17,13 +19,11 @@ export default {
             .expect(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon').exists).ok()
             .click(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon'))
         await create.create(name, '8', '16', '23', '30', 'l-01', 'z-01')
-        item.add('001', 'item-01', '23', '24', 'item-note')
-        item.add('002', 'item-02', '23', '24', 'item-note')
-        item.add('003', 'item-03', '23', '24', 'item-note')
-        item.add('004', 'item-04', '23', '24', 'item-note')
-        item.add('005', 'item-05', '23', '24', 'item-note')
-        // await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
-        checklist.addItemChecklist('checklist-01', '24')
+        for(let i=0; i<3; i++){
+            await item.add((i+1).toString(), 'item '.concat(i), '23', '24', 'item-note')
+        }
+        await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
+        checklist.addItemChecklist('checklist-01', '16')
         await t
         .click(Selector('.fas.fa-check'), {
             modifiers: {
