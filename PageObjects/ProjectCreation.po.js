@@ -90,16 +90,16 @@ export default class projectSelectors {
 
             .click(this.projMembersTab)
             .click(this.addNewPMCL)
-        // await search.memberModalSearch(pData.memName);
-        await search.memberModalSearch('Name');
+        await search.memberModalSearch(pData.memName);
+        //await search.memberModalSearch('Name');
         await t
             .click(this.memberCheckbox)
             .click(this.mlImportButton)
 
             .click(this.projCompsTab)
             .click(this.addNewPMCL)
-        //await search.search(pData.compName);
-        await search.compModalSearch('Comp 1');
+        await search.compModalSearch(pData.compName);
+        //await search.compModalSearch('Comp 1');
         await t 
             .click(this.compCheckbox)
             .click(this.compInvitButton)
@@ -121,8 +121,8 @@ export default class projectSelectors {
             .click(this.projLocSave)
 
             .click(this.importLoc);
-        //await search.search(pData.dImportName)
-        await search.locModalSearch('Loc Name')
+        await search.locModalSearch(pData.dImportName)
+        //await search.locModalSearch('Loc Name')
         await t
             .click(this.importLocModalCheckbox)
             .click(this.mlImportButton)

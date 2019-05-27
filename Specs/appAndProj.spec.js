@@ -5,31 +5,11 @@ import randomName from './../Helpers/RandomNames';
 import Project from './../Tests/App&Project/projectCreation'
 import compProfile from './../Tests/App&Project/companyProfile'
 import globalMember from "../Tests/App&Project/globalMemAdd";
+import globalComp from '../Tests/App&Project/globalCompAdd';
 
 
 const rN = randomName.random10Dig();
 const zipN = randomName.random6Dig();
-
-const pData = {
-    projName : `Project-${rN}`,
-    locName : `Location-${rN}`,
-    streetName : `Street-${rN}`,
-    cityName : `City-${rN}`,
-    stateName : `State-${rN}`,
-    zip : zipN,
-    lvl : `Level-${rN}`,
-    zone : `Zone-${rN}`,
-    projId : `ProjectID-${rN}`,
-    memName : `Member-${rN}`,
-    compName : `Company-${rN}`,
-    dLocName : `DLoc-${rN}`,
-    dOwnerName: `DOwner-${rN}`,
-    dStreetName: `DStreet-${rN}`,
-    dCityName: `DCity-${rN}`,
-    dStateName: `DState-${rN}`,
-    dZipName: zipN,
-    dImportName : 'Name'
-}
 
 const compEditData = {
     compName : `Company-${rN}`,
@@ -61,13 +41,41 @@ const compEditData = {
 }
 
 const mData = {
-  name: `user-${rN}`,
+  name: `Member-${rN}`,
   email: `qa@user${rN}.comp`,
   admin: false,
   role: `QA`,
   phNo: rN
-};
+}
 
+const cData = {
+  compName: `Company-${rN}`,
+  compType : 'GC',
+  compContact: `Contact-${rN}`,
+  compEmail: `qa@comp${rN}.comp`,
+  compPhNo: rN
+}
+
+const pData = {
+  projName : `Project-${rN}`,
+  locName : `Location-${rN}`,
+  streetName : `Street-${rN}`,
+  cityName : `City-${rN}`,
+  stateName : `State-${rN}`,
+  zip : zipN,
+  lvl : `Level-${rN}`,
+  zone : `Zone-${rN}`,
+  projId : `ProjectID-${rN}`,
+  memName : mData.name,
+  compName : cData.compName,
+  dLocName : `DLoc-${rN}`,
+  dOwnerName: `DOwner-${rN}`,
+  dStreetName: `DStreet-${rN}`,
+  dCityName: `DCity-${rN}`,
+  dStateName: `DState-${rN}`,
+  dZipName: zipN,
+  dImportName : compEditData.locName
+}
 
 fixture`App&Project`
   .beforeEach(async t => {
@@ -78,6 +86,7 @@ fixture`App&Project`
 
 test('App&Project', async t => {
     await globalMember.GlobalMemberAdd(mData)
+    await globalComp.GlobalCompAdd(cData)
     await compProfile.CompanyProfileEdit(compEditData)
     await Project.ProjectAdd(pData)
 })    
