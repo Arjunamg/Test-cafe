@@ -16,7 +16,7 @@ export default {
       .expect(Selector('td').withText(mData.email).nth(0).textContent).ok();
     if (mData.admin) {
       await t
-        .expect(memAdd.Aadmin.classNames).ok();
+        .expect(memAdd.isAdmin.classNames).ok();
     } else {
         await t
         .expect(memAdd.notAdmin.classNames).ok();
