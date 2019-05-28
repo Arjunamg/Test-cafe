@@ -37,8 +37,8 @@ export default {
     remove: async () =>{
         await remove.removeOrder();
     },
-    move : async (kind,stage) => {
-        await move.movement(kind,stage);
+    move : async (kind,stage,cardName) => {
+        await move.movement(kind,stage,cardName);
     },
     // navigator : async(stage)=>{
     //     await navigator.na
@@ -47,7 +47,7 @@ export default {
     //     await edit.editCard(name);
     // }
     ship : async()=>{
-        await ship.moveToShip()
+        await ship.qaToShip()
     }
     
 }
