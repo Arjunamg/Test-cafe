@@ -1,4 +1,7 @@
 import { Selector, t } from "testcafe";
+import Clear from "./clearField.po"
+
+const clear = new Clear();
 
 export default class addItem {
     constructor() {
@@ -49,21 +52,20 @@ export default class addItem {
             .click(this.descripTab)
     }
     async addPrefabItems(itemId, itemName, measure, prefabLevel, prefabZone, costCode, itemCoord, itemOnsite, itemNote){
+        await t.click(Selector('div').withText('ITEM ID').nth(7).find('[class^="button is-rounded image is-32x32 is-primary has-to"]'))
+        await clear.clearField(this.itemId);
+        await t.typeText(this.itemId, itemId);
+        await clear.clearField(this.itemName);
+        await t.typeText(this.itemName, itemName);
+        await clear.clearField(this.measure);
         await t
-            .click(Selector('div').withText('ITEM ID').nth(7).find('[class^="button is-rounded image is-32x32 is-primary has-to"]'))
-            .click(this.itemId)
-            .pressKey('ctrl+a')
-            .pressKey('backspace')
-            .typeText(this.itemId, itemId)
-            .click(this.itemName)
-            .pressKey('ctrl+a')
-            .pressKey('backspace')
-            .typeText(this.itemName, itemName)
             .typeText(this.measure, measure)
             .click(this.measUnits)
-            .click(Selector('.multiselect__content').find('li').withText('lb'))
-            .typeText(this.prefabLevel, prefabLevel)
-            .typeText(this.prefabZone, prefabZone)
+            .click(Selector('.multiselect__content').find('li').withText('lb'));
+        await clear.clearField(this.prefabLevel);
+        await t.typeText(this.prefabLevel, prefabLevel);
+        await clear.clearField(this.prefabZone);
+        await t.typeText(this.prefabZone, prefabZone)
             .click(this.mgtTab)
             .typeText(this.costCode, costCode)
             .click(this.itemCoord)

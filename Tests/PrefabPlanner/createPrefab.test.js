@@ -13,9 +13,7 @@ const importItem = new ImportItem('planning');
 export default {
     createPrefab: async (name) => {
         await t
-            .click(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span'))
-            .click(Selector('a').withText('PREFAB PLANNER'))
-            .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
+            .wait(1000)
             .expect(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon').exists).ok()
             .click(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]').find('.icon'))
             .click(Selector('button').withText('Create'))
@@ -24,7 +22,7 @@ export default {
             await item.addPrefabItems((i + 1).toString(), 'Prefab item '.concat(i+1), '10', 'l-01', 'z-01', '123', '22', '23', 'item-note')
         }
         // await item.addPrefabItems('1', 'item-01',  '10', 'l-01','z-01', '123', '22', '23', 'item-note')
-        await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
+        await importItem.itemImport('/home/dinesh/Test-cafe/Helpers/3 items.xlsx')
         checklist.addprefabChecklist('checklist-01', '16')
         await t
             .click(Selector('.fas.fa-check'), {

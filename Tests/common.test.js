@@ -34,11 +34,11 @@ export default {
     split: async (name) =>{
         await split.split(name);
     },
-    remove: async () =>{
-        await remove.removeOrder();
+    remove: async (type) =>{
+        await remove.removeOrder(type);
     },
-    move : async (kind,stage) => {
-        await move.movement(kind,stage);
+    move : async (kind,stage,poName) => {
+        await move.movement(kind,stage,poName);
     },
     // navigator : async(stage)=>{
     //     await navigator.na
@@ -46,8 +46,10 @@ export default {
     // edit : async (name) =>{
     //     await edit.editCard(name);
     // }
-    ship : async()=>{
-        await ship.moveToShip()
+    ship : async(type)=>{
+        if(type==='material')await ship.moveToShip()
+        else await ship.qaToShip()
     }
+    
     
 }
