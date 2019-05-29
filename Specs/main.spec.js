@@ -13,6 +13,7 @@ import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.test
 
 
 
+
 // const urlNav = ClientFunction(url => {
 //   location.href = url;
 //   location.reload(true);
@@ -47,44 +48,38 @@ test('Material', async t => {
     3. Checklist for order*/
   await t.navigateTo('https://stage.manufacton.com/#/materials/preparation')
   await createMaterial.createMaterial(name);
-
-  await t.navigateTo('https://stage.manufacton.com/#/prefabs-list')
-  await createPrefab.createPrefab(name);
-
-  await t.navigateTo('https://stage.manufacton.com/#/im')
-  await invrntoryImport.importItems();
-  // await common.search(name);
+  await common.search(name);
   //Function for splitting the order
-  // await common.split(`Split-of-${name}`);
-  // await common.clearSearch();
-  // await common.search(name);
-  // //Function for Cloning the Order
-  // await common.clone();
-  // await common.search(`Clone Of ${name}`);
-  // await common.clearSearch();
-  // //Function for Combining Order
-  // await common.combine(`${name}`,`Split-of-${name}`);
-  // await common.search(`Clone Of ${name}`);
-  // //Function For Removing the material order
-  // await common.remove();
-  // await common.clearSearch();
-  // await common.search(name);
-  // //Function for Moving the order To FM
-  // await common.move('forward','FM');
-  // await common.clearSearch();
-  // await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
-  // await common.search(name);
-  // //Function for Editing the order in FM
-  // await edit.editCard(name);
-  // await common.search(name);
-  // //Function for Moving the order To Ordering
-  // await common.move('forward','Ordering');
-  // await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
-  // await common.search(name);
-  // //Function for Create Shipping 
-  // await common.ship();
-  // await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
-  // await common.search(name);
+  await common.split(`Split-of-${name}`);
+  await common.clearSearch();
+  await common.search(name);
+  //Function for Cloning the Order
+  await common.clone();
+  await common.search(`Clone Of ${name}`);
+  await common.clearSearch();
+  //Function for Combining Order
+  await common.combine(`${name}`,`Split-of-${name}`);
+  await common.search(`Clone Of ${name}`);
+  //Function For Removing the material order
+  await common.remove();
+  await common.clearSearch();
+  await common.search(name);
+  //Function for Moving the order To FM
+  await common.move('forward','FM');
+  await common.clearSearch();
+  await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
+  await common.search(name);
+  //Function for Editing the order in FM
+  await edit.editCard(name);
+  await common.search(name);
+  //Function for Moving the order To Ordering
+  await common.move('forward','Ordering');
+  await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
+  await common.search(name);
+  //Function for Create Shipping 
+  await common.ship();
+  await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
+  await common.search(name);
 })
 
 
