@@ -4,6 +4,7 @@ import Create from "../../PageObjects/subHeader.po";
 import addItem from "../../PageObjects/AddItemPO.po";
 import Checklist from "../../PageObjects/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
+import Doc from "../../Helpers/DocLink"
 
 const create = new Create();
 const item = new addItem();
@@ -22,7 +23,7 @@ export default {
             await item.addPrefabItems((i + 1).toString(), 'Prefab item '.concat(i+1), '10', 'l-01', 'z-01', '123', '22', '23', 'item-note')
         }
         // await item.addPrefabItems('1', 'item-01',  '10', 'l-01','z-01', '123', '22', '23', 'item-note')
-        await importItem.itemImport('/home/dinesh/Test-cafe/Helpers/3 items.xlsx')
+        await importItem.itemImport(Doc.docPath())
         checklist.addprefabChecklist('checklist-01', '16')
         await t
             .click(Selector('.fas.fa-check'), {

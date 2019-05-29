@@ -6,6 +6,7 @@ import Docs from "../../PageObjects/DocumentsPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
 import Clone from "../../PageObjects/ClonePO.po";
 // import Movement from "../../PageObjects/DocumentsPO";
+import Doc from '../../Helpers/DocLink'
 
 const docs = new Docs();
 const importItem = new ImportItem();
@@ -25,12 +26,12 @@ export default {
         // await browserscroll();
         // await t.wait(2000);
         await t .click(Selector('td').withText(name));
-        await docs.addDocs( '/home/dinesh/Downloads/3 items.xlsx', 'item doc', 'https://www.google.com',
-        '/home/dinesh/Downloads/3 items.xlsx', 'order doc', 'https://www.amazon.com')
+        await docs.addDocs( Doc.docPath(), 'item doc', 'https://www.google.com',
+        Doc.docPath(), 'order doc', 'https://www.amazon.com')
         // await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
         await t
             .click(Selector('span').withText('FIELD MEASUREMENT'))
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 2; i++) {
             await t.click(Selector('.has-text-centered.check-box').nth(i))
         }
         await t

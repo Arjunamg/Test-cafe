@@ -1,5 +1,6 @@
 import { Selector, t } from 'testcafe';
 import itemImport from '../../PageObjects/ImportItemPO.po'
+import Doc from '../../Helpers/DocLink'
 
 const importItem = new itemImport('inventory');
 
@@ -9,7 +10,7 @@ export default {
             .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
             .click(Selector('span').withText('INVENTORY MANAGER'))
             .click(Selector('[data-target="navbarBasicExample"].navbar-burger'))
-        await importItem.inventoryImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
+        await importItem.inventoryImport(Doc.docPath())
          await t
             .click(Selector('.icon-filter-off.m-t-1.has-tooltip'))
             .click(Selector('.multiselect').find('div').withText('Select option'))

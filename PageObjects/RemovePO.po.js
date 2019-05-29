@@ -13,6 +13,7 @@ export default class Remove {
             .click(this.click3dots)
             if(type=='material') await t.click(this.remove)
             else await t.click(this.orderRemove)
+            await t
             .click(this.confirm)
             .wait(3000)
     }

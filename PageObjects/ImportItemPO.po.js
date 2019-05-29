@@ -16,6 +16,9 @@ export default class importItem {
         this.location = Selector('.multiselect__tags').nth(4).find('span').withText('Select option')
     }
     async itemImport(excelItem) {
+        // const file = await excelItem;
+        // console.log('excelItem',excelItem);
+        // console.log('file',file);
         await t
             .click(this.firstTab)
             .click(this.excelButton)

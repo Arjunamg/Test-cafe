@@ -30,9 +30,9 @@ export default class Create {
             .typeText(this.level, level)
             .typeText(this.zone, zone)
             .click(this.location)
-            .click(Selector('li').withText('lak loc2'))
+            .click(Selector('li').withText('Loc Name'))
             .click(this.recipient)
-            .click(Selector('.multiselect__option.multiselect__option--highlight').nth(4).find('span').withText('Anil Kumar'))
+            .click(Selector('.multiselect__option.multiselect__option--highlight').nth(4).find('span').withText('UI'))
     }
     async creatPrefab(orderName ,coordBy, prefabOnsite){
         await t

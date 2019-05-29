@@ -12,7 +12,7 @@ const clearField = new ClearField();
 const name = orderName.name();
 
 
-fixture`Material Manager`
+fixture`Prefab to Shipping`
   .beforeEach(async t => {
     await t
       .maximizeWindow()

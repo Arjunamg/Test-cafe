@@ -4,6 +4,7 @@ import Create from "../../PageObjects/subHeader.po";
 import addItem from "../../PageObjects/AddItemPO.po";
 import Checklist from "../../PageObjects/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
+import Doc from '../../Helpers/DocLink'
 
 const create = new Create();
 const item = new addItem();
@@ -22,7 +23,7 @@ export default {
         for(let i=0; i<3; i++){
             await item.add((i+1).toString(), 'item '.concat(i), '23', '24', 'item-note')
         }
-        await importItem.itemImport('/home/access/TestCafeStudio/stage-manufacton-com/_uploads_/3 items 5.xlsx')
+        await importItem.itemImport(Doc.docPath())
         checklist.addItemChecklist('checklist-01', '16')
         await t
         .click(Selector('.fas.fa-check'), {

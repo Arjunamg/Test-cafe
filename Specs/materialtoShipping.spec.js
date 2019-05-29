@@ -1,11 +1,11 @@
 import { Selector,ClientFunction, Role } from "testcafe";
-import createMaterial from './../Tests/MaterialManager/createMaterial';
-import createPrefab from './../Tests/PrefabPlanner/createPrefab.test';
-import edit from './../Tests/MaterialManager/editCard'
-import common from './../Tests/common.test'
-import orderName from './../Helpers/RandomNames';
-import BasicParams from './../Helpers/BasicParams';
-import GC_Role from './../Helpers/Roles';
+import createMaterial from '../Tests/MaterialManager/createMaterial';
+import createPrefab from '../Tests/PrefabPlanner/createPrefab.test';
+import edit from '../Tests/MaterialManager/editCard'
+import common from '../Tests/common.test'
+import orderName from '../Helpers/RandomNames';
+import BasicParams from '../Helpers/BasicParams';
+import GC_Role from '../Helpers/Roles';
 import editMfCard from '../Tests/ProductionManager/editManufacturingCard.tests';
 import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.tests'
 
@@ -34,14 +34,14 @@ import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.test
 const name = orderName.name();
 
 
-fixture`Material Manager`
+fixture`Material to Shipping`
   .beforeEach(async t => {
     await t
       .maximizeWindow()
       .wait(500).useRole(GC_Role());
   });
 
-test('Material', async t => {
+test('Material to Shipping', async t => {
   /*Material Card creation with:
     1. Order Level Dates and Level and zone
     2. 5 items, each with FM required and item notes
@@ -69,6 +69,7 @@ test('Material', async t => {
   await common.clearSearch();
   await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
   await common.search(name);
+  await t.wait(1000);
   //Function for Editing the order in FM
   await edit.editCard(name);
   await common.search(name);
@@ -77,7 +78,7 @@ test('Material', async t => {
   await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
   await common.search(name);
   //Function for Create Shipping 
-  await common.ship();
+  await common.ship('material');
   await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
   await common.search(name);
 })
