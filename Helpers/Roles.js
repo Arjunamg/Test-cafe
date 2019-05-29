@@ -1,7 +1,7 @@
 import { Selector, ClientFunction, Role } from 'testcafe'; 
 import BasicParams from './BasicParams';
 const urlNav = ClientFunction(url => {location.href = url; location.reload(true)});
-const url = 'https://app.manufacton.com/#/materials/preparation';
+const url = 'https://stage.manufacton.com/#/';
 
 export default function(){
   const GC_Role = new Role(BasicParams.url, async t => {
