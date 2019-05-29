@@ -59,7 +59,7 @@ test('Material', async t => {
   await common.combine(`${name}`,`Split-of-${name}`);
   await common.search(`Clone Of ${name}`);
   //Function For Removing the material order
-  await common.remove();
+  await common.remove('material');
   await common.clearSearch();
   await common.search(name);
   //Function for Moving the order To FM

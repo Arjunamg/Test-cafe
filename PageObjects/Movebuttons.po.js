@@ -11,12 +11,12 @@ export default class Movement {
         this.stagePrep =Selector('span').withText('Preparation').nth(1)
         this.stageFM =Selector('span').withText('Field Measurement').nth(1)
         this.stageOrdering =Selector('span').withText('Ordering').nth(1)
-        this.PoName = Selector('div').withText('Name').nth(25).find('.input')
+        this.PoName = Selector('div').withText('Name').nth(19).find('.input')
         this.poToPrefabConfirm = Selector('button').withText('Yes')
         this.poToDetailingDateSelect =  Selector('.control.has-icons-left.is-clearfix').find('.input')
         this.poToDetailingDate = Selector('.datepicker-row').nth(32).find('a').withText('15')
         this.poToDetailingLocSelect = Selector('.multiselect').nth(8).find('div').withText('Select One')
-        this.poToDetailingLoc = Selector('li').withText('Name').nth(13).find('.multiselect__option.multiselect__option--highlight')
+        this.poToDetailingLoc = Selector('li').withText('Name').nth(7).find('.multiselect__option.multiselect__option--highlight')
         this.DetailingToManufDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
         this.DetailingToManufDate = Selector('.datepicker-row').nth(62).find('a').withText('17')
         this.manufToQaDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
@@ -42,86 +42,9 @@ export default class Movement {
             await this.backward(stage);
         }
     }
-    //Pass Detination names as stage name
-    async forward(stage,poName){
-        if(stage==='FM'){
-            await forwardMove();
-            await t  
-                .click(this.stageDD)
-                .click(this.stageFM);
-            await selectAllMove();
-        }
-        else if(stage==='Ordering'){
-            await forwardMove();
-            await selectAllMove();
-        }
-        else if(stage === 'PO'){
-            await forwardMove();
-            await t 
-                .click(this.PoName)
-                .typeText(this.PoName, poName)
-            await selectAllMove();
-        }
-        else if(stage === 'Detailing'){
-            await forwardMove();
-            await t 
-                .click(this.poToDetailingDateSelect)
-                .click(this.poToDetailingDate)
-                .click(this.poToDetailingLocSelect)
-                .click(this.poToDetailingLoc)
-            await selectAllMove();
-        }
-        else if(stage === 'Manufacturing'){
-            await forwardMove();
-            await t 
-                .click(this.DetailingToManufDateSelect)
-                .click(this.DetailingToManufDate)
-            await selectAllMove();
-        }
-        else if(stage ==='QA'){
-            await forwardMove();    
-            await t
-                .click(this.DetailingToManufDateSelect)
-                .click(this.manufToQaDate)
-            await selectAllMove();
-        }
-    }
-    async backward(){
-        if(stage==='Preparation'){
-            await backwardMove(); 
-            await selectAllMove();        
-        }
-        else if(stage==='FM'){
-            await backwardMove(); 
-            await t  
-                .click(this.stageDD)
-                .click(this.stageFM)
-            await selectAllMove();
-        }
-        else if(stage==='Prefab'){
-            await backwardMove(); 
-            await t
-                .click(this.poToPrefabConfirm)
-        }
-        else if(stage==='PO'){
-            await backwardMove(); 
-            await t 
-                .click(this.modalMove)
-        }
-        else if(stage==='Detailing'){
-            await backwardMove(); 
-            await t
-                .click(this.modalMove)
-        }
-        else if(stage==='Manufacturing'){
-            await backwardMove(); 
-            await selectAllMove();
-        }
-    }
-    async selectAllMove(){
-        await t 
-            .click(this.selectAllItems)
-            .click(this.modalMove)
+    async selectAllMove(reqItemCheck){
+        if(reqItemCheck) await t.click(this.selectAllItems);
+            await t.click(this.modalMove)
     }
     async forwardMove(){
         await t
@@ -132,5 +55,82 @@ export default class Movement {
         await t
             .click(this.backwardPaperPlane)
             .click(this.backwardItemPaperPlane)
+    }
+    //Pass Detination names as stage name
+    async forward(stage,poName){
+        if(stage==='FM'){
+            await this.forwardMove();
+            await t  
+                .click(this.stageDD)
+                .click(this.stageFM);
+            await this.selectAllMove(true);
+        }
+        else if(stage==='Ordering'){
+            await this.forwardMove();
+            await this.selectAllMove(true);
+        }
+        else if(stage === 'PO'){
+            await this.forwardMove();
+            await t 
+                .click(this.PoName)
+                .typeText(this.PoName, poName)
+            await this.selectAllMove(true);
+        }
+        else if(stage === 'Detailing'){
+            await this.forwardMove();
+            await t 
+                .click(this.poToDetailingDateSelect)
+                .click(this.poToDetailingDate)
+                .click(this.poToDetailingLocSelect)
+                .click(this.poToDetailingLoc)
+            await this.selectAllMove(false);
+        }
+        else if(stage === 'Manufacturing'){
+            await this.forwardMove();
+            await t 
+                .click(this.DetailingToManufDateSelect)
+                .click(this.DetailingToManufDate)
+            await this.selectAllMove(true);
+        }
+        else if(stage ==='QA'){
+            await this.forwardMove();    
+            await t
+                .click(this.DetailingToManufDateSelect)
+                .click(this.manufToQaDate)
+            await this.selectAllMove(true);
+            
+        }
+    }
+    async backward(){
+        if(stage==='Preparation'){
+            await this.backwardMove(); 
+            await this.selectAllMove();        
+        }
+        else if(stage==='FM'){
+            await this.backwardMove(); 
+            await t  
+                .click(this.stageDD)
+                .click(this.stageFM)
+            await this.selectAllMove();
+        }
+        else if(stage==='Prefab'){
+            await this.backwardMove(); 
+            await t
+                .click(this.poToPrefabConfirm)
+        }
+        else if(stage==='PO'){
+            await this.backwardMove(); 
+            await t 
+                .click(this.modalMove)
+        }
+        else if(stage==='Detailing'){
+            await this.backwardMove(); 
+            await t
+                .click(this.modalMove)
+        }
+        else if(stage==='Manufacturing'){
+            await this.backwardMove(); 
+            await this.selectAllMove();
+        }
     }
 }

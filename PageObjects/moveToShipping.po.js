@@ -5,7 +5,7 @@ export default class Movement {
     constructor() {
         //Below are the Shipping selectors which might be useful later.
         this.shipButton = Selector('.fa.fa-truck.fa-2x.fa-1x.fa');
-        this.shipItemButton = Selector('.fas.m-r-5.fa.fa-truck').nth(3);
+        this.shipItemButton = Selector('.fas.m-r-5.fa.fa-truck');
         this.shipDate = Selector('.control.has-icons-left.is-clearfix').find('.input');
         this.deliveryDate = Selector('div').withText('Deliver Date').nth(12).find('.input')
         this.owner = Selector('.multiselect__single').nth(4)
@@ -49,14 +49,14 @@ export default class Movement {
             .wait(2000)
             .click(this.shipDate)
             .click(Selector('.datepicker-row').nth(62).find('a').withText('16'))
-            .click(this.recipient)
-            .click(Selector('span').withText('lakshmi devi').nth(6))
+            // .click(this.recipient)
+            // .click(Selector('li').withText('Name').nth(28).find('.multiselect__option'))
             .click(this.deliveryDate)
             .click(Selector('.datepicker-row').nth(68).find('a').withText('22'))
-            .click(this.destinationLoc)
-            .click(Selector('span').withText('xzcvb').nth(4))
-            .click(this.reciver)
-            .click(Selector('span').withText('IUSHE').nth(6))
+            // .click(this.destinationLoc)
+            // .click(Selector('li').withText('GILN').find('.multiselect__option'))
+            // .click(this.reciver)
+            // .click(Selector('li').withText('General Inventory Hub').nth(1).find('.multiselect__option.multiselect__option--highlight'))
             .click(this.next)
             .click(this.next)
             .click(this.updateDelivery)
