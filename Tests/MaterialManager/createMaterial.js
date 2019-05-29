@@ -2,7 +2,7 @@ import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 import Create from "../../PageObjects/subHeader.po";
 import addItem from "../../PageObjects/AddItemPO.po";
-import Checklist from "../../PageObjects/ChecllistPO.po";
+import Checklist from "../../PageObjects/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
 
 const create = new Create();

@@ -7,6 +7,8 @@ import orderName from './../Helpers/RandomNames';
 import BasicParams from './../Helpers/BasicParams';
 import GC_Role from './../Helpers/Roles';
 import editMfCard from '../Tests/ProductionManager/editManufacturingCard.tests';
+import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.tests'
+
 
 
 
