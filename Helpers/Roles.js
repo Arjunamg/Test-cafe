@@ -1,5 +1,5 @@
 import { Selector, ClientFunction, Role } from 'testcafe'; 
-import BasicParams from './BasicParams';
+import BasicParams from './Feeder';
 const urlNav = ClientFunction(url => {location.href = url; location.reload(true)});
 const url = 'https://stage.manufacton.com/#/';
 

@@ -1,17 +1,10 @@
 import { Selector,ClientFunction, Role } from "testcafe";
 import createMaterial from '../Tests/MaterialManager/createMaterial';
-import createPrefab from '../Tests/PrefabPlanner/createPrefab.test';
 import edit from '../Tests/MaterialManager/editCard'
 import common from '../Tests/common.test'
-import orderName from '../Helpers/RandomNames';
-import BasicParams from '../Helpers/BasicParams';
+import Feeder from '../Helpers/Feeder';
 import GC_Role from '../Helpers/Roles';
-import editMfCard from '../Tests/ProductionManager/editManufacturingCard.tests';
 import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.tests'
-
-
-
-
 
 
 // const urlNav = ClientFunction(url => {
@@ -31,9 +24,6 @@ import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.test
 //   { preserveUrl: true }
 // );
 
-const name = orderName.name();
-
-
 fixture`Material to Shipping`
   .beforeEach(async t => {
     await t
@@ -47,40 +37,40 @@ test('Material to Shipping', async t => {
     2. 5 items, each with FM required and item notes
     3. Checklist for order*/
   await t.navigateTo('https://stage.manufacton.com/#/materials/preparation')
-  await createMaterial.createMaterial(name);
-  await common.search(name);
+  await createMaterial.createMaterial(Feeder.materialOrderName);
+  await common.search(Feeder.materialOrderName);
   //Function for splitting the order
-  await common.split(`Split-of-${name}`);
+  await common.split(`Split-of-${Feeder.materialOrderName}`);
   await common.clearSearch();
-  await common.search(name);
+  await common.search(Feeder.materialOrderName);
   //Function for Cloning the Order
   await common.clone();
-  await common.search(`Clone Of ${name}`);
+  await common.search(`Clone Of ${Feeder.materialOrderName}`);
   await common.clearSearch();
   //Function for Combining Order
-  await common.combine(`${name}`,`Split-of-${name}`);
-  await common.search(`Clone Of ${name}`);
+  await common.combine(`${Feeder.materialOrderName}`,`Split-of-${Feeder.materialOrderName}`);
+  await common.search(`Clone Of ${Feeder.materialOrderName}`);
   //Function For Removing the material order
   await common.remove('material');
   await common.clearSearch();
-  await common.search(name);
+  await common.search(Feeder.materialOrderName);
   //Function for Moving the order To FM
   await common.move('forward','FM');
   await common.clearSearch();
   await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
-  await common.search(name);
+  await common.search(Feeder.materialOrderName);
   await t.wait(1000);
   //Function for Editing the order in FM
-  await edit.editCard(name);
-  await common.search(name);
+  await edit.editCard(Feeder.materialOrderName);
+  await common.search(Feeder.materialOrderName);
   //Function for Moving the order To Ordering
   await common.move('forward','Ordering');
   await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
-  await common.search(name);
+  await common.search(Feeder.materialOrderName);
   //Function for Create Shipping 
   await common.ship('material');
   await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
-  await common.search(name);
+  await common.search(Feeder.materialOrderName);
 })
 
 
