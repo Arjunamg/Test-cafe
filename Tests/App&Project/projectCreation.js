@@ -2,6 +2,7 @@ import { Selector, t } from 'testcafe';
 import Project from '../../PageObjects/ProjectCreation.po'
 import Search from '../../PageObjects/GlobalSearch.po'
 import ClearSearch from '../../PageObjects/ClearSearch.po'
+import Navi from '../../Helpers/Navigator'
 const project = new Project();
 const search = new Search();
 const clearSearch = new ClearSearch();
@@ -10,10 +11,10 @@ const clearSearch = new ClearSearch();
 //The commented out lines are for sending member,company,DeliveyLoc name after those tests run first, for now it is hard coded.
 export default {
     ProjectAdd : async(pData) => {
-        await t.navigateTo('https://stage.manufacton.com/#/settings/projects');
+        await Navi.navigator('project');
         await project.create(pData)
         await t .wait(1000);
-        await t.navigateTo('https://stage.manufacton.com/#/settings/projects');
+        await Navi.navigator('project');
         await search.search(pData.projName)
         await t 
             .click(project.openProject)

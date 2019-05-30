@@ -1,9 +1,8 @@
-import navi from './urls'
+import urls from './urls'
+import { t } from 'testcafe';
 
-
-export default function(stage){
-    test('Navigate', async t => {
-        await t
-            .navigateTo(navi[stage]);
-    });
+export default {
+    navigator: async stage => {
+        await t.navigateTo(urls[stage]);
+    }
 }

@@ -6,7 +6,6 @@ import compProfile from './../Tests/App&Project/companyProfile'
 import globalMember from "../Tests/App&Project/globalMemAdd";
 import globalComp from '../Tests/App&Project/globalCompAdd';
 
-
 fixture`App&Project`
   .beforeEach(async t => {
     await t
