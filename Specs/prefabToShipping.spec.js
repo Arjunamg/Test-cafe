@@ -6,6 +6,8 @@ import prefabCreate from '../Tests/PrefabPlanner/createPrefab.test'
 import editMfCard from '../Tests/ProductionManager/editManufacturingCard.tests';
 import common from './../Tests/common.test'
 import ClearField from "../PageObjects/clearField.po";
+import Navi from '../Helpers/Navigator'
+
 const clearField = new ClearField();
 
 
@@ -19,7 +21,7 @@ fixture`Prefab to Shipping`
 
 test('Prefab to Shipping', async t => {
   /*PRefab Card Creation*/
-  await t.navigateTo('https://stage.manufacton.com/#/prefabs-list')
+  await Navi.navigator('prefabs')
   await prefabCreate.createPrefab(Feeder.prefabOrderName);
   await t.wait(1000);
   await common.search(Feeder.prefabOrderName);
@@ -32,7 +34,7 @@ test('Prefab to Shipping', async t => {
   await common.search(Feeder.prefabOrderName);
   await t.wait(1000);
   await common.move('forward','PO',`Planning-to-Shipping-${Feeder.prefabOrderName}`);
-  await t.navigateTo('https://stage.manufacton.com/#/orders-list')
+  await Navi.navigator('po')
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await t.wait(1000);
   await common.split(`Split-of-Planning-to-Shipping-${Feeder.prefabOrderName}`);
@@ -50,11 +52,11 @@ test('Prefab to Shipping', async t => {
   await common.clearSearch();
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await common.move('forward','Detailing');
-  await t.navigateTo('https://stage.manufacton.com/#/manager/detailing')
+  await Navi.navigator('detailing')
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await t.wait(1000);
   await common.move('forward','Manufacturing');
-  await t.navigateTo('https://stage.manufacton.com/#/manager/manufacturing')
+  await Navi.navigator('manufacturing')
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await editMfCard.editManufacturingCard(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await t.wait(1000);
@@ -62,11 +64,11 @@ test('Prefab to Shipping', async t => {
   await t.wait(1000);
   await common.move('forward','QA');
   await t.click(Selector('button').withText('OK'));
-  await t.navigateTo('https://stage.manufacton.com/#/manager/qa')
+  await Navi.navigator('qa')
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`);
   await t.wait(7000);
   await common.ship('prefab');
-  await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view')
+  await Navi.navigator('ship-order')
   await common.search(`Planning-to-Shipping-${Feeder.prefabOrderName}`); 
 })
 

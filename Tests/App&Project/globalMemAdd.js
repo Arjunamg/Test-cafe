@@ -1,13 +1,14 @@
 import { Selector, t } from "testcafe";
 import MemberAdd from "../../PageObjects/memberAdd.po";
 import Search from "../../PageObjects/GlobalSearch.po";
+import Navi from "../../Helpers/Navigator"
 
 const memAdd = new MemberAdd();
 const search = new Search();
 
 export default {
   GlobalMemberAdd: async mData => {
-    await t.navigateTo('https://stage.manufacton.com/#/settings/members');
+    await Navi.navigator('members')
     await t.wait(2000);
     await memAdd.globalMemberAdd(mData);
     await search.search(mData.name);

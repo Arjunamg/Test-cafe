@@ -4,6 +4,7 @@ import edit from '../Tests/MaterialManager/editCard'
 import common from '../Tests/common.test'
 import Feeder from '../Helpers/Feeder';
 import GC_Role from '../Helpers/Roles';
+import Navi from '../Helpers/Navigator'
 import invrntoryImport from '../Tests/InventoryManager/importInventoryItems.tests'
 
 
@@ -36,7 +37,7 @@ test('Material to Shipping', async t => {
     1. Order Level Dates and Level and zone
     2. 5 items, each with FM required and item notes
     3. Checklist for order*/
-  await t.navigateTo('https://stage.manufacton.com/#/materials/preparation')
+  await Navi.navigator('preparation')
   await createMaterial.createMaterial(Feeder.materialOrderName);
   await common.search(Feeder.materialOrderName);
   //Function for splitting the order
@@ -57,7 +58,7 @@ test('Material to Shipping', async t => {
   //Function for Moving the order To FM
   await common.move('forward','FM');
   await common.clearSearch();
-  await t.navigateTo('https://stage.manufacton.com/#/materials/qa');
+  await Navi.navigator('fm') 
   await common.search(Feeder.materialOrderName);
   await t.wait(1000);
   //Function for Editing the order in FM
@@ -65,11 +66,11 @@ test('Material to Shipping', async t => {
   await common.search(Feeder.materialOrderName);
   //Function for Moving the order To Ordering
   await common.move('forward','Ordering');
-  await t.navigateTo('https://stage.manufacton.com/#/materials/ordering');
+  await Navi.navigator('ordering')
   await common.search(Feeder.materialOrderName);
   //Function for Create Shipping 
   await common.ship('material');
-  await t.navigateTo('https://stage.manufacton.com/#/scm/shipping/order-view');
+  await Navi.navigator('ship-order')
   await common.search(Feeder.materialOrderName);
 })
 
