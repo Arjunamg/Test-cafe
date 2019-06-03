@@ -6,8 +6,8 @@ const zipN = Randoms.random6Dig();
 export default {
     
     url :'https://stage.manufacton.com/#/',
-    email:'',
-    password:'',
+    email:'ui@automation.comp',
+    password:'Cricket!',
 
     companyEdit : {
         compName : `Company-${rN}`,
