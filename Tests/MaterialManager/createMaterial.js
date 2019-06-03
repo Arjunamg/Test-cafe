@@ -12,7 +12,7 @@ const checklist = new Checklist();
 const importItem = new ImportItem('preparation');
 
 export default {
-        createMaterial:async(name)=>{
+    async createMaterial(name) {
         await t 
             .click(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span').nth(2))
             .click(Selector('a').withText('MATERIAL MANAGER'))
