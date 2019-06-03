@@ -29,6 +29,8 @@ export default {
             .expect(Selector('span').withText(compEditData.billingEmail).textContent).ok()
             .expect(Selector('span').withText(compEditData.manufRuns).nth(0).textContent).ok()
             .click(profile.locTab)
+        await search.search(compEditData.locName);
+        await t
             .expect(Selector('td').withText(compEditData.locName).nth(0).textContent).ok()
             .expect(Selector('td').withText(compEditData.locOwnerName).nth(0).textContent).ok()
             .expect(Selector('td').withText(compEditData.locStreetName).nth(0).textContent).ok()
