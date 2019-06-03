@@ -59,6 +59,7 @@ test('Material to Shipping', async t => {
   await common.move('forward','FM');
   await common.clearSearch();
   await Navi.navigator('fm') 
+  await t.wait(3000);
   await common.search(Feeder.materialOrderName);
   await t.wait(1000);
   //Function for Editing the order in FM

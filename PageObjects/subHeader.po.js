@@ -22,11 +22,11 @@ export default class Create {
             .click(this.orderBy)
             .click(Selector('.datepicker-row').nth(1).find('a').withText(orderBy))
             .click(this.availBy)
-            .click(Selector('.datepicker-row').nth(7).find('a').withText(availBy))
+            .click(Selector('.datepicker-row').nth(9).find('a').withText(availBy))
             .click(this.ship)
-            .click(Selector('.datepicker-row').nth(13).find('a').withText(ship))
+            .click(Selector('.datepicker-row').nth(16).find('a').withText(ship))
             .click(this.onsite)
-            .click(Selector('.datepicker-row').nth(19).find('a').withText(onsite))
+            .click(Selector('.datepicker-row').nth(23).find('a').withText(onsite))
             .typeText(this.level, level)
             .typeText(this.zone, zone)
             .click(this.location)
@@ -40,6 +40,6 @@ export default class Create {
             .click(this.coordBy)
             .click(Selector('.datepicker-row').nth(1).find('a').withText(coordBy))
             .click(this.prefabOnsite)
-            .click(Selector('.datepicker-row').nth(9).find('a').withText(prefabOnsite))
+            .click(Selector('.datepicker-row').nth(10).find('a').withText(prefabOnsite))
     }
 }
