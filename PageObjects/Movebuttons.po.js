@@ -14,13 +14,13 @@ export default class Movement {
         this.PoName = Selector('div').withText('Name').nth(19).find('.input')
         this.poToPrefabConfirm = Selector('button').withText('Yes')
         this.poToDetailingDateSelect =  Selector('.control.has-icons-left.is-clearfix').find('.input')
-        this.poToDetailingDate = Selector('.datepicker-row').nth(32).find('a').withText('15')
+        this.poToDetailingDate = Selector('.datepicker-row').nth(38).find('a').withText('15')
         this.poToDetailingLocSelect = Selector('.multiselect').nth(8).find('div').withText('Select One')
         this.poToDetailingLoc = Selector('li').withText('Name').nth(7).find('.multiselect__option.multiselect__option--highlight')
         this.DetailingToManufDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
-        this.DetailingToManufDate = Selector('.datepicker-row').nth(62).find('a').withText('17')
+        this.DetailingToManufDate = Selector('.datepicker-row').nth(75).find('a').withText('18')
         this.manufToQaDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
-        this.manufToQaDate = Selector('.datepicker-row').nth(62).find('a').withText('17')
+        this.manufToQaDate = Selector('.datepicker-row').nth(75).find('a').withText('18')
         //Below are the Shipping selectors which might be useful later.
         // this.shipButton = Selector('.fa.fa-truck.fa-2x.fa-1x.fa');
         // this.shipItemButton = Selector('.fas.m-r-5.fa.fa-truck');

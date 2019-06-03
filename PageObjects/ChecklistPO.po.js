@@ -15,7 +15,7 @@ export default class addChecklist {
             .click(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]'))
             .typeText(this.name, checklistName)
             .click(this.dueDate)
-            .click(Selector('.datepicker-row').nth(22).find('a').withText('16'))
+            .click(Selector('.datepicker-row').nth(27).find('a').withText('16'))
             .click(this.isPrivate)
     }
     // async datePicker(stage){
@@ -32,7 +32,7 @@ export default class addChecklist {
             .click(Selector('[class^="button is-rounded image is-32x32 is-primary has-to"]'))
             .typeText(this.name, checklistName)
             .click(this.dueDate)
-            .click(Selector('.datepicker-row').nth(12).find('a').withText('16'))
+            .click(Selector('.datepicker-row').nth(15).find('a').withText('16'))
             .click(this.isPrivate)
     }
 }

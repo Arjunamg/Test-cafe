@@ -1,5 +1,8 @@
 export default {
     docPath : () =>{
-        return "/home/dinesh/Test-cafe/Assets/3 items.xlsx"
+        return "./../Assets/ExcelImports/3-items.xlsx"
+    },
+    excelPath : () =>{
+        return "./../Assets/ExcelImports/3-items.xlsx"
     }
 }
