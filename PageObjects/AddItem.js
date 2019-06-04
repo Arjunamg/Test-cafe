@@ -1,13 +1,13 @@
 import { Selector, t } from "testcafe";
 import Clear from "./clearField.po"
+import itemTabCommon from './common/itemTab.po'
 
 const clear = new Clear();
 
-export default class addItem {
+export default class addItem extends itemTabCommon{
     constructor() {
+        super();
         this.descripTab = Selector('span').withText('DESCRIPTION')
-        this.itemId = Selector('.vuetable-component').nth(0).find('.input')
-        this.itemName = Selector('.vuetable-component').nth(1).find('.input')
         this.catId = Selector('.vuetable-component').nth(2).find('.input')
         this.fieldverifyTab = Selector('span').withText('FIELD MEASUREMENT')
         this.measureBy = Selector('.vuetable-component').nth(2).find('.input')
@@ -27,37 +27,26 @@ export default class addItem {
     }1
     async add(itemId, itemName, catId, measureBy, itemNote) {
         await t
-            .click(Selector('div').withText('ITEM ID').nth(7).find('.fas.m-t-3.fa-plus'))
-            .click(this.itemId)
-            .pressKey('ctrl+a')
-            .pressKey('backspace')
-            .typeText(this.itemId, itemId)
-            .click(this.itemName)
-            .pressKey('ctrl+a')
-            .pressKey('backspace')
-            .typeText(this.itemName, itemName)
+             await itemTabCommon.prototype.itemTab.call(this, itemId, itemName);
             // Direction of item addition is downward but we have to increment the index for item field, which is pretty time consuming, will do it later.
             // .click(this.catId)
             // .pressKey('ctrl+a')
             // .pressKey('backspace')            
             // .typeText(this.catId, catId)
-            .click(this.fieldverifyTab)
-            .click(this.measureBy)
-            .click(Selector('.datepicker-row').nth(28).find('a').withText(measureBy))
-            .click(this.assignee)
-            .click(Selector('.multiselect__option.multiselect__option--highlight').nth(5).find('span').withText('UI'))
-            .click(this.requireFM)
-            .wait(1000)
-            .click(this.itemnoteTab)
-            .typeText(this.itemNote, itemNote)
-            .click(this.descripTab)
+            await t 
+                .click(this.fieldverifyTab)
+                .click(this.measureBy)
+                .click(Selector('.datepicker-row').nth(28).find('a').withText(measureBy))
+                .click(this.assignee)
+                .click(Selector('.multiselect__option.multiselect__option--highlight').nth(5).find('span').withText('Arjun M G'))
+                .click(this.requireFM)
+                .wait(1000)
+                .click(this.itemnoteTab)
+                .typeText(this.itemNote, itemNote)
+                .click(this.descripTab)
     }
     async addPrefabItems(itemId, itemName, measure, prefabLevel, prefabZone, costCode, itemCoord, itemOnsite, itemNote){
-        await t.click(Selector('div').withText('ITEM ID').nth(7).find('[class^="button is-rounded image is-32x32 is-primary has-to"]'))
-        await clear.clearField(this.itemId);
-        await t.typeText(this.itemId, itemId);
-        await clear.clearField(this.itemName);
-        await t.typeText(this.itemName, itemName);
+        await itemTabCommon.prototype.itemTab.call(this, itemId, itemName);
         await clear.clearField(this.measure);
         await t
             .typeText(this.measure, measure)

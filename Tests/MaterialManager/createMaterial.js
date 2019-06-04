@@ -1,7 +1,7 @@
 import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
-import Create from "../../PageObjects/subHeader.po";
-import addItem from "../../PageObjects/AddItemPO.po";
+import Create from "../../PageObjects/cardBasics";
+import addItem from "../../PageObjects/AddItem";
 import Checklist from "../../PageObjects/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
 import Doc from '../../Helpers/DocLink'
