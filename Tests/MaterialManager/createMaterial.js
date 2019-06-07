@@ -2,9 +2,9 @@ import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 import Create from "../../PageObjects/cardBasics";
 import addItem from "../../PageObjects/AddItem";
-import Checklist from "../../PageObjects/ChecklistPO.po";
+import Checklist from "../../PageObjects/common/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
-import Doc from '../../Helpers/DocLink'
+import Doc from '../../Helpers/DocLink';
 
 const create = new Create();
 const item = new addItem();
