@@ -38,7 +38,7 @@ export default class addItem extends itemTabCommon{
                 .click(this.measureBy)
                 .click(Selector('.datepicker-row').nth(28).find('a').withText(measureBy))
                 .click(this.assignee)
-                .click(Selector('.multiselect__option.multiselect__option--highlight').nth(5).find('span').withText('Arjun M G'))
+                .click(Selector('.multiselect__option.multiselect__option--highlight').nth(5).find('span').withText('UI'))
                 .click(this.requireFM)
                 .wait(1000)
                 .click(this.itemnoteTab)
