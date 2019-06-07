@@ -1,5 +1,8 @@
 import { Selector, t } from "testcafe";
 import VueSelector from 'testcafe-vue-selectors';
+import MfDateEntry from './common/datePicker.po';
+
+const dateEntry = new MfDateEntry();
 
 export default class Movement {
     constructor() {
@@ -23,14 +26,12 @@ export default class Movement {
             .click(this.shipButton)
             .click(this.shipItemButton)
             .wait(2000)
-            .click(this.shipDate)
-            .click(Selector('.datepicker-row').nth(50).find('a').withText('15'))
+        await dateEntry.fill('Ship Date','29')
+        await dateEntry.fill('Deliver Date', '30')
             // .click(this.owner)
             // .click(Selector('span').withText('UI').nth(7))
             // .click(this.recipient)
             // .click(Selector('li').withText('UI').nth(4).find('.multiselect__option'))
-            .click(this.deliveryDate)
-            .click(Selector('.datepicker-row').nth(58).find('a').withText('29'))
             // .click(this.reserveFor)
             // .click(Selector('span').withText('testOrderInDetailingStage').nth(1))
             // .click(this.destinationLoc)
