@@ -1,0 +1,15 @@
+{
+    "browsers": ["chrome:headless"],
+    "debugOnFail": false,
+    "stopOnFirstFail": true,
+    "skipJsErrors": true,
+    "concurrency": 3,
+    "selectorTimeout": 15000,
+    "assertionTimeout": 4000,
+    "pageLoadTimeout": 4000,
+    "speed": 1,
+    "developmentMode": true,
+    "qrCode": true,
+    "color": true
+ 
+ }
