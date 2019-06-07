@@ -13,7 +13,7 @@ Install
 
 To run tests: 
 
-Goto BasicParams.js file and add valid Login Creds and run the following.
+Goto Feeder.js file and add valid Login Creds and run the following.
 
 testcafe "chrome --disk-cache-size=1" `TestFileName.js` -e
 

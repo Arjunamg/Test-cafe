@@ -2,6 +2,7 @@ import { Selector, t } from 'testcafe';
 import Search from '../../PageObjects/GlobalSearch.po'
 import ClearSearch from '../../PageObjects/ClearSearch.po'
 import CompProfile from '../../PageObjects/CompanyProfile.po'
+import Navi from '../../Helpers/Navigator'
 const profile = new CompProfile();
 const search = new Search();
 const clearSearch = new ClearSearch();
@@ -10,7 +11,7 @@ const clearSearch = new ClearSearch();
 //The commented out lines are for sending member,company,DeliveyLoc name after those tests run first, for now it is hard coded.
 export default {
     CompanyProfileEdit : async(compEditData) => {
-        await t.navigateTo('https://stage.manufacton.com/#/settings/company-profile');
+        await Navi.navigator('company-profile')
         await profile.companyEdit(compEditData)
         await t
             .click(Selector('span').withText('COMPANY INFO'))

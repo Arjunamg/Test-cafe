@@ -1,6 +1,7 @@
 import { Selector, t } from "testcafe";
 import Search from "../PageObjects/GlobalSearch.po";
-const search = new Search();
+
+const modalSearch = new Search('BModal');
 
 //The commented out lines are for sending member,company,DeliveyLoc name after those tests run first, for now it is hard coded.
 export default class projectSelectors {
@@ -90,7 +91,7 @@ export default class projectSelectors {
 
             .click(this.projMembersTab)
             .click(this.addNewPMCL)
-        await search.memberModalSearch(pData.memName);
+        await modalSearch.search(pData.memName);
         //await search.memberModalSearch('Name');
         await t
             .click(this.memberCheckbox)
@@ -98,7 +99,7 @@ export default class projectSelectors {
 
             .click(this.projCompsTab)
             .click(this.addNewPMCL)
-        await search.compModalSearch(pData.compName);
+        await modalSearch.search(pData.compName);
         //await search.compModalSearch('Comp 1');
         await t 
             .click(this.compCheckbox)
@@ -121,7 +122,7 @@ export default class projectSelectors {
             .click(this.projLocSave)
 
             .click(this.importLoc);
-        await search.locModalSearch(pData.dImportName)
+        await modalSearch.search(pData.dImportName)
         //await search.locModalSearch('Loc Name')
         await t
             .click(this.importLocModalCheckbox)
