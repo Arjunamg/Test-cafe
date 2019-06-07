@@ -1,8 +1,8 @@
 import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
-import Create from "../../PageObjects/subHeader.po";
-import addItem from "../../PageObjects/AddItemPO.po";
-import Checklist from "../../PageObjects/ChecklistPO.po";
+import Create from "../../PageObjects/cardBasics";
+import addItem from "../../PageObjects/AddItem";
+import Checklist from "../../PageObjects/common/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
 import Doc from "../../Helpers/DocLink"
 
@@ -22,7 +22,6 @@ export default {
         for (let i = 0; i < 3; i++) {
             await item.addPrefabItems((i + 1).toString(), 'Prefab item '.concat(i+1), '10', 'l-01', 'z-01', '123', '22', '23', 'item-note')
         }
-        // await item.addPrefabItems('1', 'item-01',  '10', 'l-01','z-01', '123', '22', '23', 'item-note')
         await importItem.itemImport(Doc.docPath())
         checklist.addprefabChecklist('checklist-01', '16')
         await t

@@ -2,9 +2,9 @@ import { Selector, t, ClientFunction } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 import Role from '../../Helpers/Roles'
 
-import Docs from "../../PageObjects/DocumentsPO.po";
+import Docs from "../../PageObjects/common/DocumentsPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
-import Clone from "../../PageObjects/ClonePO.po";
+import Clone from "../../PageObjects/common/ClonePO.po";
 // import Movement from "../../PageObjects/DocumentsPO";
 import Doc from '../../Helpers/DocLink'
 

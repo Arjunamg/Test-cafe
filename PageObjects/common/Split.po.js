@@ -1,7 +1,7 @@
 import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
 
-import Search from "../PageObjects/GlobalSearch.po";
+import Search from "../GlobalSearch.po";
 const search = new Search();
 
 export default class Movement {

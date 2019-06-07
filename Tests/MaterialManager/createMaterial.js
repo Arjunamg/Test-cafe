@@ -1,10 +1,10 @@
 import { Selector, t } from 'testcafe';
 import VueSelector from 'testcafe-vue-selectors';
-import Create from "../../PageObjects/subHeader.po";
-import addItem from "../../PageObjects/AddItemPO.po";
-import Checklist from "../../PageObjects/ChecklistPO.po";
+import Create from "../../PageObjects/cardBasics";
+import addItem from "../../PageObjects/AddItem";
+import Checklist from "../../PageObjects/common/ChecklistPO.po";
 import ImportItem from "../../PageObjects/ImportItemPO.po";
-import Doc from '../../Helpers/DocLink'
+import Doc from '../../Helpers/DocLink';
 
 const create = new Create();
 const item = new addItem();
@@ -12,7 +12,7 @@ const checklist = new Checklist();
 const importItem = new ImportItem('preparation');
 
 export default {
-        createMaterial:async(name)=>{
+    async createMaterial(name) {
         await t 
             .click(Selector('[data-target="navbarBasicExample"].navbar-burger').find('span').nth(2))
             .click(Selector('a').withText('MATERIAL MANAGER'))
