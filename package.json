@@ -4,11 +4,8 @@
   "description": "ui automation",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe 'chrome --disk-cache-size=1' Specs/main.spec.js -e ",
-    "slow": "testcafe 'chrome --disk-cache-size=1' Specs/main.spec.js -e --speed 0.7 ",
-    "remote": "testcafe remote '--disk-cache-size=1' Specs/main.spec.js -e --qr-code",
-    "all": "testcafe all '--disk-cache-size=1' Specs/main.spec.js -e ",
-    "hidden": "testcafe 'chrome:headless --disk-cache-size=1' Specs/main.spec.js -e --speed 0.7 " 
+    "headless": "testcafe '--disk-cache-size=1' Specs/",
+    "head": "testcafe 'chrome --disk-cache-size=1' Specs/"
   },
   "repository": {
     "type": "git",
