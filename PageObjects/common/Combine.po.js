@@ -1,24 +1,29 @@
 import { Selector, t } from "testcafe";
 import VueSelector from 'testcafe-vue-selectors';
 
-import GlobalSearch from "./GlobalSearch.po";
+import GlobalSearch from "../GlobalSearch.po";
 const globalSearch = new GlobalSearch();
 
-import ClearSearch from './ClearSearch.po';
+import ClearSearch from '../ClearSearch.po';
 const clearSearch = new ClearSearch();
 
 
 
 export default class Movement {
-    constructor() {
-        this.threeDot= Selector('.button.custome-dot-menu').find('.icon')
-        this.combineOption= Selector('.dropdown-item').nth(25).find('span').withText('Combine')
-        this.combineButton =Selector('button').withText('Combine')
+    constructor(type) {
+        if(type === 'material'){
+            this.combineOption = VueSelector('ActionsField BDropdown BDropdownItem').nth(1)
+        }
+        else {
+            this.combineOption = VueSelector('ActionsField BDropdown BDropdownItem').nth(3)
+        }
+        this.click3dots = VueSelector('ActionsField BDropdown')
+        this.combineButton = Selector('button').withText('Combine')
     }
-    async combine(parentOrder, childOrder){
+    async combine(parentOrder, childOrder) {
         await globalSearch.search(parentOrder);
         await t
-            .click(this.threeDot)
+            .click(this.click3dots)
             // .wait(1000)
             .click(this.combineOption)
             // .wait(1000)
@@ -31,5 +36,5 @@ export default class Movement {
             .wait(2000)
         // Rio bug for Global search ex "a + b"
         //await globalSearch.Search(`${parentOrder} + ${childOrder}`);    
-    }    
+    }
 }

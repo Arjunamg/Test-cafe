@@ -1,7 +1,7 @@
 import ClearSearch from './../PageObjects/ClearSearch.po';
 import Search from './../PageObjects/GlobalSearch.po';
 import Clone from '../PageObjects/common/ClonePO.po';
-import Combine from './../PageObjects/MaterialCombine.po';
+import Combine from '../PageObjects/common/Combine.po';
 import Remove from '../PageObjects/common/RemovePO.po';
 import Split from './../PageObjects/common/Split.po';
 import Move from './../PageObjects/Movebuttons.po'
@@ -11,7 +11,7 @@ import Ship from './../PageObjects/moveToShipping.po'
 const clearSearch = new ClearSearch();
 const search = new Search();
 const clone = new Clone();
-const combine = new Combine();
+const combine = new Combine('material');
 const remove = new Remove();
 const split = new Split();
 const move = new Move();
