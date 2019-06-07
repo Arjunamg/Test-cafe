@@ -15,6 +15,8 @@ export default class Movement {
         this.reciver = Selector('.multiselect__single').nth(1)
         this.next = Selector('p').withText('Next')
         this.updateDelivery = Selector('a').withText('Update Delivery')
+        this.selectAll = Selector('[class^="vuetable-th-component-checkbox vuetable-th-compone"]').find('input')
+
     }
 
     async moveToShip() {
@@ -38,6 +40,7 @@ export default class Movement {
             // .click(this.reciver)
             // .click(Selector('span').withText('IUSHE').nth(5))
             .click(this.next)
+            .click(this.selectAll)
             .click(this.next)
             .click(this.updateDelivery)
     }
@@ -58,6 +61,7 @@ export default class Movement {
             // .click(this.reciver)
             // .click(Selector('li').withText('General Inventory Hub').nth(1).find('.multiselect__option.multiselect__option--highlight'))
             .click(this.next)
+            .click(this.selectAll)
             .click(this.next)
             .click(this.updateDelivery)
     }

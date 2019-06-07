@@ -13,6 +13,6 @@ export default class CardBasicsPo{
         .click(this.onsite)
         .click(Selector('.datepicker-row').nth(23).find('a').withText(onsite))
         .click(this.location)
-        .click(Selector('li').withText('ajja'))
+        .click(Selector('li').withText('Name'))
 }
 }
