@@ -1,6 +1,9 @@
 import { Selector, t } from "testcafe";
 import Search from "../PageObjects/GlobalSearch.po";
 import Clear from "../Helpers/ClearField"
+import CatID from "../PageObjects/CatlogIdAdd.po"
+
+const catId = new CatID();
 const clear = new Clear();
 const search = new Search();
 
@@ -48,8 +51,10 @@ export default class CompanyProfile {
         this.giStateName = Selector('.vuetable-component').nth(7).find('.input')
         this.giLocZip = Selector('.vuetable-component').nth(8).find('.input')
         this.giLocSave = Selector('div').withText('Rental').nth(10).find('.fas.fa-check')
+
+        this.catIdTab = Selector('span').withText('CATALOG IDS')
     }
-    async companyEdit(compEditData) {
+    async companyEdit(compEditData,catIdData) {
         await t
             .click(this.compEdit)
             
@@ -127,6 +132,7 @@ export default class CompanyProfile {
         await clear.clearField(this.manufRuns)
         await t
             .typeText(this.manufRuns, compEditData.manufRuns)
+            .pressKey('enter')
 
             .click(this.save)
 
@@ -153,7 +159,8 @@ export default class CompanyProfile {
             .typeText(this.giLocZip, compEditData.giLocZip)
             .click(this.giLocSave)
 
-
+        await t.click(this.catIdTab)
+        await catId.CatalogIdAdd(catIdData)
 
 
     }

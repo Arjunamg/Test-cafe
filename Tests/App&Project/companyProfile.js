@@ -10,9 +10,9 @@ const clearSearch = new ClearSearch();
 
 //The commented out lines are for sending member,company,DeliveyLoc name after those tests run first, for now it is hard coded.
 export default {
-    CompanyProfileEdit : async(compEditData) => {
+    CompanyProfileEdit : async(compEditData,catIdData) => {
         await Navi.navigator('company-profile')
-        await profile.companyEdit(compEditData)
+        await profile.companyEdit(compEditData,catIdData)
         await t
             .click(Selector('span').withText('COMPANY INFO'))
             .expect(Selector('span').withText(compEditData.compName).textContent).ok()
@@ -41,5 +41,14 @@ export default {
             .click(profile.giTab)
             .click(profile.giFlyout)
             .expect(Selector('.vuetable-body').nth(1).find('td').withText(compEditData.giLocName).textContent).ok()
+            .click(profile.catIdTab)
+        await clearSearch.clearSearch();  
+        await search.search(catIdData.name);
+        await t
+            .expect(Selector('td').withText(catIdData.id).nth(0).textContent).ok()
+            .expect(Selector('td').withText(catIdData.name).nth(0).textContent).ok()
+            .expect(Selector('td').withText(catIdData.catalogId).nth(0).textContent).ok()
+            .expect(Selector('td').withText(catIdData.measUnits).nth(0).textContent).ok();
+
     },
 }

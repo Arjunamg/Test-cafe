@@ -78,4 +78,11 @@ export default {
     materialOrderName : Randoms.name(),
 
     prefabOrderName : Randoms.name(),
+
+    catIdData : {
+      id: `CATALOG-${rN}`,
+      name : `Name-${rN}`,
+      catalogId : `CatID-${rN}`,
+      measUnits : 'lb'
+    }
 }

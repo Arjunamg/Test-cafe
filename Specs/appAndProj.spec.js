@@ -16,7 +16,7 @@ fixture`App&Project`
 test('App&Project', async t => {
     await globalMember.GlobalMemberAdd(Data.memberAdd)
     await globalComp.GlobalCompAdd(Data.companyAdd)
-    await compProfile.CompanyProfileEdit(Data.companyEdit)
+    await compProfile.CompanyProfileEdit(Data.companyEdit,Data.catIdData)
     await Project.ProjectAdd(Data.projectCreation)
 })    
 
