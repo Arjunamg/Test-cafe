@@ -1,7 +1,4 @@
 import { Selector, t } from "testcafe";
-import MfDateEntry from './common/datePicker.po';
-
-const dateEntry = new MfDateEntry();
 export default class Movement {
     constructor() {
         this.forwardPaperPlane = Selector('.fa.fa-paper-plane.fa-2x.fa-1x.fa');
@@ -16,8 +13,24 @@ export default class Movement {
         this.stageOrdering =Selector('span').withText('Ordering').nth(1)
         this.PoName = Selector('div').withText('Name').nth(19).find('.input')
         this.poToPrefabConfirm = Selector('button').withText('Yes')
+        this.poToDetailingDateSelect =  Selector('.control.has-icons-left.is-clearfix').find('.input')
+        this.poToDetailingDate = Selector('.datepicker-row').nth(38).find('a').withText('15')
         this.poToDetailingLocSelect = Selector('.multiselect').nth(8).find('div').withText('Select One')
         this.poToDetailingLoc = Selector('li').withText('Name').nth(7).find('.multiselect__option.multiselect__option--highlight')
+        this.DetailingToManufDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
+        this.DetailingToManufDate = Selector('.datepicker-row').nth(75).find('a').withText('18')
+        this.manufToQaDateSelect = Selector('.control.has-icons-left.is-clearfix').find('.input')
+        this.manufToQaDate = Selector('.datepicker-row').nth(75).find('a').withText('18')
+        //Below are the Shipping selectors which might be useful later.
+        // this.shipButton = Selector('.fa.fa-truck.fa-2x.fa-1x.fa');
+        // this.shipItemButton = Selector('.fas.m-r-5.fa.fa-truck');
+        // this.shipNext = Selector('button').withText('Next');
+        // this.shipOrderName = Selector('div').withText('Name').nth(37).find('.input');
+        // this.shipID = Selector('div').withText('Tracking').nth(10).find('.input');
+        // this.shipDateField = Selector('.control.has-icons-left.is-clearfix').find('.input');
+        // this.deliverDateField = Selector('div').withText('Delivery Location').nth(17).find('.input');
+        // this.deliveryLocationField = Selector('div').withText('Delivery Location').nth(17).find('.multiselect__single');
+        // this.shipCreate = Selector('button').withText('Create');
     }
 
     //Material Movement is ONLY from P->FM->O or O->FM->P
@@ -66,7 +79,8 @@ export default class Movement {
         else if(stage === 'Detailing'){
             await this.forwardMove();
             await t 
-            await dateEntry.fill('Detail By', '23')
+                .click(this.poToDetailingDateSelect)
+                .click(this.poToDetailingDate)
                 .click(this.poToDetailingLocSelect)
                 .click(this.poToDetailingLoc)
             await this.selectAllMove(false);
@@ -74,13 +88,15 @@ export default class Movement {
         else if(stage === 'Manufacturing'){
             await this.forwardMove();
             await t 
-            await dateEntry.fill('Manuf By ', '26')
+                .click(this.DetailingToManufDateSelect)
+                .click(this.DetailingToManufDate)
             await this.selectAllMove(true);
         }
         else if(stage ==='QA'){
             await this.forwardMove();    
             await t
-            await dateEntry.fill('QA By', '28')
+                .click(this.DetailingToManufDateSelect)
+                .click(this.manufToQaDate)
             await this.selectAllMove(true);
             
         }

@@ -18,6 +18,14 @@ export default class addChecklist {
             .click(Selector('.datepicker-row').nth(27).find('a').withText('16'))
             .click(this.isPrivate)
     }
+    // async datePicker(stage){
+    //     if (stage === 'planning'){
+    //        await t .click(Selector('.datepicker-row').nth(12).find('a').withText('16'))
+    //     }
+    //     else {
+    //         await t.click(Selector('.datepicker-row').nth(22).find('a').withText('16'))
+    //     }
+    // }
     async addprefabChecklist(checklistName, dueDate){
        await t
             .click(this.checklistTab)
